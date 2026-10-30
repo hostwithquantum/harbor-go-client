@@ -7,7 +7,7 @@ SWAGGER_VERSION=v0.30.3
 SWAGGER := $(DOCKERCMD) run --rm -it -v $(HOME):$(HOME) -w $(shell pwd) quay.io/goswagger/swagger:$(SWAGGER_VERSION)
 
 ifeq ($(VERSION),)
-VERSION := v2.6.2
+VERSION := v2.1.3
 endif
 
 HARBOR_ASSIST_SPEC=api/swagger.yaml
@@ -35,10 +35,11 @@ help: ## Display this help
 
 .PHONY: update-spec
 update-spec: ## update all swagger spec files
-	@echo "Downloading spec from Harbor with version: $(VERSION)"
-	@wget ${HARBOR_ASSIST_SPEC_URL} -O ${HARBOR_ASSIST_SPEC}
-	@wget ${HARBOR_2.0_SPEC_URL} -O ${HARBOR_2.0_SPEC}
-	@wget ${HARBOR_2.0_LEGACY_SPEC_URL} -O ${HARBOR_2.0_LEGACY_SPEC}
+	@echo spec download switched off, because v2.1.3 swagger spec needed a small patch to build
+	#@echo "Downloading spec from Harbor with version: $(VERSION)"
+	#@wget ${HARBOR_ASSIST_SPEC_URL} -O ${HARBOR_ASSIST_SPEC}
+	#@wget ${HARBOR_2.0_SPEC_URL} -O ${HARBOR_2.0_SPEC}
+	#@wget ${HARBOR_2.0_LEGACY_SPEC_URL} -O ${HARBOR_2.0_LEGACY_SPEC}
 
 .PHONY: gen-harbor-api
 gen-harbor-api: update-spec ## generate goswagger client for harbor
