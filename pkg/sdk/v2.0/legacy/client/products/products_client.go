@@ -23,10 +23,409 @@ type API interface {
 	   Remove label from the specified chart version.*/
 	DeleteChartrepoRepoChartsNameVersionLabelsID(ctx context.Context, params *DeleteChartrepoRepoChartsNameVersionLabelsIDParams) (*DeleteChartrepoRepoChartsNameVersionLabelsIDOK, error)
 	/*
-	   GetChartrepoRepoChartsNameVersionLabels returns the attached labels of chart
+	   DeleteLabelsID deletes the label specified by ID
 
-	   Return the attached labels of the specified chart version.*/
+	   Delete the label specified by ID.
+	*/
+	DeleteLabelsID(ctx context.Context, params *DeleteLabelsIDParams) (*DeleteLabelsIDOK, error)
+	/*
+	   DeleteProjectsProjectIDImmutabletagrulesID deletes the immutable tag rule*/
+	DeleteProjectsProjectIDImmutabletagrulesID(ctx context.Context, params *DeleteProjectsProjectIDImmutabletagrulesIDParams) (*DeleteProjectsProjectIDImmutabletagrulesIDOK, error)
+	/*
+	   DeleteProjectsProjectIDMembersMid deletes project member*/
+	DeleteProjectsProjectIDMembersMid(ctx context.Context, params *DeleteProjectsProjectIDMembersMidParams) (*DeleteProjectsProjectIDMembersMidOK, error)
+	/*
+	   DeleteProjectsProjectIDMetadatasMetaName deletes metadata of a project
+
+	   This endpoint is aimed to delete metadata of a project.
+	*/
+	DeleteProjectsProjectIDMetadatasMetaName(ctx context.Context, params *DeleteProjectsProjectIDMetadatasMetaNameParams) (*DeleteProjectsProjectIDMetadatasMetaNameOK, error)
+	/*
+	   DeleteProjectsProjectIDRobotsRobotID deletes the specified robot account
+
+	   Delete the specified robot account*/
+	DeleteProjectsProjectIDRobotsRobotID(ctx context.Context, params *DeleteProjectsProjectIDRobotsRobotIDParams) (*DeleteProjectsProjectIDRobotsRobotIDOK, error)
+	/*
+	   DeleteProjectsProjectIDWebhookPoliciesPolicyID deletes webhook policy of a project
+
+	   This endpoint is aimed to delete webhookpolicy of a project.
+	*/
+	DeleteProjectsProjectIDWebhookPoliciesPolicyID(ctx context.Context, params *DeleteProjectsProjectIDWebhookPoliciesPolicyIDParams) (*DeleteProjectsProjectIDWebhookPoliciesPolicyIDOK, error)
+	/*
+	   DeleteRegistriesID deletes specific registry
+
+	   This endpoint is for to delete specific registry.
+	*/
+	DeleteRegistriesID(ctx context.Context, params *DeleteRegistriesIDParams) (*DeleteRegistriesIDOK, error)
+	/*
+	   DeleteReplicationPoliciesID deletes the replication policy specified by ID
+
+	   Delete the replication policy specified by ID.
+	*/
+	DeleteReplicationPoliciesID(ctx context.Context, params *DeleteReplicationPoliciesIDParams) (*DeleteReplicationPoliciesIDOK, error)
+	/*
+	   DeleteUsergroupsGroupID deletes user group
+
+	   Delete user group*/
+	DeleteUsergroupsGroupID(ctx context.Context, params *DeleteUsergroupsGroupIDParams) (*DeleteUsergroupsGroupIDOK, error)
+	/*
+	   DeleteUsersUserID marks a registered user as be removed
+
+	   This endpoint let administrator of Harbor mark a registered user as
+	   be removed.It actually won't be deleted from DB.
+	*/
+	DeleteUsersUserID(ctx context.Context, params *DeleteUsersUserIDParams) (*DeleteUsersUserIDOK, error)
+	/*
+	   GetChartrepoRepoChartsNameVersionLabels returns the attahced labels of chart
+
+	   Return the attahced labels of the specified chart version.*/
 	GetChartrepoRepoChartsNameVersionLabels(ctx context.Context, params *GetChartrepoRepoChartsNameVersionLabelsParams) (*GetChartrepoRepoChartsNameVersionLabelsOK, error)
+	/*
+	   GetConfigurations gets system configurations
+
+	   This endpoint is for retrieving system configurations that only provides for admin user.
+	*/
+	GetConfigurations(ctx context.Context, params *GetConfigurationsParams) (*GetConfigurationsOK, error)
+	/*
+	   GetHealth healths check API
+
+	   The endpoint returns the health stauts of the system.
+	*/
+	GetHealth(ctx context.Context, params *GetHealthParams) (*GetHealthOK, error)
+	/*
+	   GetLabels lists labels according to the query strings
+
+	   This endpoint let user list labels by name, scope and project_id
+	*/
+	GetLabels(ctx context.Context, params *GetLabelsParams) (*GetLabelsOK, error)
+	/*
+	   GetLabelsID gets the label specified by ID
+
+	   This endpoint let user get the label by specific ID.
+	*/
+	GetLabelsID(ctx context.Context, params *GetLabelsIDParams) (*GetLabelsIDOK, error)
+	/*
+	   GetLdapGroupsSearch searches available ldap groups
+
+	   This endpoint searches the available ldap groups based on related configuration parameters. support to search by groupname or groupdn.
+	*/
+	GetLdapGroupsSearch(ctx context.Context, params *GetLdapGroupsSearchParams) (*GetLdapGroupsSearchOK, error)
+	/*
+	   GetLdapUsersSearch searches available ldap users
+
+	   This endpoint searches the available ldap users based on related configuration parameters. Support searched by input ladp configuration, load configuration from the system and specific filter.
+	*/
+	GetLdapUsersSearch(ctx context.Context, params *GetLdapUsersSearchParams) (*GetLdapUsersSearchOK, error)
+	/*
+	   GetProjectsProjectIDImmutabletagrules lists all immutable tag rules of current project
+
+	   This endpoint returns the immutable tag rules of a project
+	*/
+	GetProjectsProjectIDImmutabletagrules(ctx context.Context, params *GetProjectsProjectIDImmutabletagrulesParams) (*GetProjectsProjectIDImmutabletagrulesOK, error)
+	/*
+	   GetProjectsProjectIDMembers gets all project member information
+
+	   Get all project member information*/
+	GetProjectsProjectIDMembers(ctx context.Context, params *GetProjectsProjectIDMembersParams) (*GetProjectsProjectIDMembersOK, error)
+	/*
+	   GetProjectsProjectIDMembersMid gets the project member information
+
+	   Get the project member information*/
+	GetProjectsProjectIDMembersMid(ctx context.Context, params *GetProjectsProjectIDMembersMidParams) (*GetProjectsProjectIDMembersMidOK, error)
+	/*
+	   GetProjectsProjectIDMetadatas gets project metadata
+
+	   This endpoint returns metadata of the project specified by project ID.
+	*/
+	GetProjectsProjectIDMetadatas(ctx context.Context, params *GetProjectsProjectIDMetadatasParams) (*GetProjectsProjectIDMetadatasOK, error)
+	/*
+	   GetProjectsProjectIDMetadatasMetaName gets project metadata
+
+	   This endpoint returns specified metadata of a project.
+	*/
+	GetProjectsProjectIDMetadatasMetaName(ctx context.Context, params *GetProjectsProjectIDMetadatasMetaNameParams) (*GetProjectsProjectIDMetadatasMetaNameOK, error)
+	/*
+	   GetProjectsProjectIDRobots gets all robot accounts of specified project
+
+	   Get all robot accounts of specified project*/
+	GetProjectsProjectIDRobots(ctx context.Context, params *GetProjectsProjectIDRobotsParams) (*GetProjectsProjectIDRobotsOK, error)
+	/*
+	   GetProjectsProjectIDRobotsRobotID returns the infor of the specified robot account
+
+	   Return the infor of the specified robot account.*/
+	GetProjectsProjectIDRobotsRobotID(ctx context.Context, params *GetProjectsProjectIDRobotsRobotIDParams) (*GetProjectsProjectIDRobotsRobotIDOK, error)
+	/*
+	   GetProjectsProjectIDScanner gets project level scanner
+
+	   Get the scanner registration of the specified project. If no scanner registration is configured for the specified project, the system default scanner registration will be returned.*/
+	GetProjectsProjectIDScanner(ctx context.Context, params *GetProjectsProjectIDScannerParams) (*GetProjectsProjectIDScannerOK, error)
+	/*
+	   GetProjectsProjectIDScannerCandidates gets scanner registration candidates for configurating project level scanner
+
+	   Retrieve the system configured scanner registrations as candidates of setting project level scanner.
+	*/
+	GetProjectsProjectIDScannerCandidates(ctx context.Context, params *GetProjectsProjectIDScannerCandidatesParams) (*GetProjectsProjectIDScannerCandidatesOK, error)
+	/*
+	   GetProjectsProjectIDWebhookEvents gets supported event types and notify types
+
+	   Get supportted event types and notify types.*/
+	GetProjectsProjectIDWebhookEvents(ctx context.Context, params *GetProjectsProjectIDWebhookEventsParams) (*GetProjectsProjectIDWebhookEventsOK, error)
+	/*
+	   GetProjectsProjectIDWebhookJobs lists project webhook jobs
+
+	   This endpoint returns webhook jobs of a project.
+	*/
+	GetProjectsProjectIDWebhookJobs(ctx context.Context, params *GetProjectsProjectIDWebhookJobsParams) (*GetProjectsProjectIDWebhookJobsOK, error)
+	/*
+	   GetProjectsProjectIDWebhookLasttrigger gets project webhook policy last trigger info
+
+	   This endpoint returns last trigger information of project webhook policy.
+	*/
+	GetProjectsProjectIDWebhookLasttrigger(ctx context.Context, params *GetProjectsProjectIDWebhookLasttriggerParams) (*GetProjectsProjectIDWebhookLasttriggerOK, error)
+	/*
+	   GetProjectsProjectIDWebhookPolicies lists project webhook policies
+
+	   This endpoint returns webhook policies of a project.
+	*/
+	GetProjectsProjectIDWebhookPolicies(ctx context.Context, params *GetProjectsProjectIDWebhookPoliciesParams) (*GetProjectsProjectIDWebhookPoliciesOK, error)
+	/*
+	   GetProjectsProjectIDWebhookPoliciesPolicyID gets project webhook policy
+
+	   This endpoint returns specified webhook policy of a project.
+	*/
+	GetProjectsProjectIDWebhookPoliciesPolicyID(ctx context.Context, params *GetProjectsProjectIDWebhookPoliciesPolicyIDParams) (*GetProjectsProjectIDWebhookPoliciesPolicyIDOK, error)
+	/*
+	   GetQuotas lists quotas
+
+	   List quotas*/
+	GetQuotas(ctx context.Context, params *GetQuotasParams) (*GetQuotasOK, error)
+	/*
+	   GetQuotasID gets the specified quota
+
+	   Get the specified quota*/
+	GetQuotasID(ctx context.Context, params *GetQuotasIDParams) (*GetQuotasIDOK, error)
+	/*
+	   GetRegistries lists registries
+
+	   List registries according to the query.
+	*/
+	GetRegistries(ctx context.Context, params *GetRegistriesParams) (*GetRegistriesOK, error)
+	/*
+	   GetRegistriesID gets registry
+
+	   This endpoint is for get specific registry.*/
+	GetRegistriesID(ctx context.Context, params *GetRegistriesIDParams) (*GetRegistriesIDOK, error)
+	/*
+	   GetRegistriesIDInfo gets registry info
+
+	   Get the info of one specific registry.*/
+	GetRegistriesIDInfo(ctx context.Context, params *GetRegistriesIDInfoParams) (*GetRegistriesIDInfoOK, error)
+	/*
+	   GetRegistriesIDNamespace lists namespaces of registry
+
+	   This endpoint let user list namespaces of registry according to query.
+	*/
+	GetRegistriesIDNamespace(ctx context.Context, params *GetRegistriesIDNamespaceParams) (*GetRegistriesIDNamespaceOK, error)
+	/*
+	   GetReplicationAdapters lists supported adapters
+
+	   This endpoint let user list supported adapters.
+	*/
+	GetReplicationAdapters(ctx context.Context, params *GetReplicationAdaptersParams) (*GetReplicationAdaptersOK, error)
+	/*
+	   GetReplicationExecutions lists replication executions
+
+	   This endpoint let user list replication executions.
+	*/
+	GetReplicationExecutions(ctx context.Context, params *GetReplicationExecutionsParams) (*GetReplicationExecutionsOK, error)
+	/*
+	   GetReplicationExecutionsID gets the execution of the replication
+
+	   This endpoint is for user to get one execution of the replication.
+	*/
+	GetReplicationExecutionsID(ctx context.Context, params *GetReplicationExecutionsIDParams) (*GetReplicationExecutionsIDOK, error)
+	/*
+	   GetReplicationExecutionsIDTasks gets the task list of one execution
+
+	   This endpoint is for user to get the task list of one execution.
+	*/
+	GetReplicationExecutionsIDTasks(ctx context.Context, params *GetReplicationExecutionsIDTasksParams) (*GetReplicationExecutionsIDTasksOK, error)
+	/*
+	   GetReplicationExecutionsIDTasksTaskIDLog gets the log of one task
+
+	   This endpoint is for user to get the log of one task.
+	*/
+	GetReplicationExecutionsIDTasksTaskIDLog(ctx context.Context, params *GetReplicationExecutionsIDTasksTaskIDLogParams) (*GetReplicationExecutionsIDTasksTaskIDLogOK, error)
+	/*
+	   GetReplicationPolicies lists replication policies
+
+	   This endpoint let user list replication policies
+	*/
+	GetReplicationPolicies(ctx context.Context, params *GetReplicationPoliciesParams) (*GetReplicationPoliciesOK, error)
+	/*
+	   GetReplicationPoliciesID gets replication policy
+
+	   This endpoint let user get replication policy by specific ID.
+	*/
+	GetReplicationPoliciesID(ctx context.Context, params *GetReplicationPoliciesIDParams) (*GetReplicationPoliciesIDOK, error)
+	/*
+	   GetRetentionsID gets retention policy
+
+	   Get Retention Policy.*/
+	GetRetentionsID(ctx context.Context, params *GetRetentionsIDParams) (*GetRetentionsIDOK, error)
+	/*
+	   GetRetentionsIDExecutions gets a retention job
+
+	   Get a Retention job, job status may be delayed before job service schedule it up.*/
+	GetRetentionsIDExecutions(ctx context.Context, params *GetRetentionsIDExecutionsParams) (*GetRetentionsIDExecutionsOK, error)
+	/*
+	   GetRetentionsIDExecutionsEidTasks gets retention job tasks
+
+	   Get Retention job tasks, each repository as a task.*/
+	GetRetentionsIDExecutionsEidTasks(ctx context.Context, params *GetRetentionsIDExecutionsEidTasksParams) (*GetRetentionsIDExecutionsEidTasksOK, error)
+	/*
+	   GetRetentionsIDExecutionsEidTasksTid gets retention job task log
+
+	   Get Retention job task log, tags ratain or deletion detail will be shown in a table.*/
+	GetRetentionsIDExecutionsEidTasksTid(ctx context.Context, params *GetRetentionsIDExecutionsEidTasksTidParams) (*GetRetentionsIDExecutionsEidTasksTidOK, error)
+	/*
+	   GetRetentionsMetadatas gets retention metadatas
+
+	   Get Retention Metadatas.*/
+	GetRetentionsMetadatas(ctx context.Context, params *GetRetentionsMetadatasParams) (*GetRetentionsMetadatasOK, error)
+	/*
+	   GetScanners lists scanner registrations
+
+	   Returns a list of currently configured scanner registrations.
+	*/
+	GetScanners(ctx context.Context, params *GetScannersParams) (*GetScannersOK, error)
+	/*
+	   GetScannersRegistrationID gets a scanner registration details
+
+	   Retruns the details of the specified scanner registration.
+	*/
+	GetScannersRegistrationID(ctx context.Context, params *GetScannersRegistrationIDParams) (*GetScannersRegistrationIDOK, error)
+	/*
+	   GetScannersRegistrationIDMetadata gets the metadata of the specified scanner registration
+
+	   Get the metadata of the specified scanner registration, including the capabilities and customzied properties.
+	*/
+	GetScannersRegistrationIDMetadata(ctx context.Context, params *GetScannersRegistrationIDMetadataParams) (*GetScannersRegistrationIDMetadataOK, error)
+	/*
+	   GetScansAllMetrics gets the metrics of the latest scan all process
+
+	   Get the metrics of the latest scan all process*/
+	GetScansAllMetrics(ctx context.Context, params *GetScansAllMetricsParams) (*GetScansAllMetricsOK, error)
+	/*
+	   GetScansScheduleMetrics gets the metrics of the latest scheduled scan all process
+
+	   Get the metrics of the latest scheduled scan all process*/
+	GetScansScheduleMetrics(ctx context.Context, params *GetScansScheduleMetricsParams) (*GetScansScheduleMetricsOK, error)
+	/*
+	   GetSearch searches for projects repositories and helm charts
+
+	   The Search endpoint returns information about the projects ,repositories  and helm charts offered at public status or related to the current logged in user. The response includes the project, repository list and charts in a proper display order.
+	*/
+	GetSearch(ctx context.Context, params *GetSearchParams) (*GetSearchOK, error)
+	/*
+	   GetStatistics gets projects number and repositories number relevant to the user
+
+	   This endpoint is aimed to statistic all of the projects number and repositories number relevant to the logined user, also the public projects number and repositories number. If the user is admin, he can also get total projects number and total repositories number.
+	*/
+	GetStatistics(ctx context.Context, params *GetStatisticsParams) (*GetStatisticsOK, error)
+	/*
+	   GetSystemCVEAllowlist gets the system level allowlist of CVE
+
+	   Get the system level allowlist of CVE.  This API can be called by all authenticated users.*/
+	GetSystemCVEAllowlist(ctx context.Context, params *GetSystemCVEAllowlistParams) (*GetSystemCVEAllowlistOK, error)
+	/*
+	   GetSystemGC gets gc results
+
+	   This endpoint let user get latest ten gc results.*/
+	GetSystemGC(ctx context.Context, params *GetSystemGCParams) (*GetSystemGCOK, error)
+	/*
+	   GetSystemGCID gets gc status
+
+	   This endpoint let user get gc status filtered by specific ID.*/
+	GetSystemGCID(ctx context.Context, params *GetSystemGCIDParams) (*GetSystemGCIDOK, error)
+	/*
+	   GetSystemGCIDLog gets gc job log
+
+	   This endpoint let user get gc job logs filtered by specific ID.*/
+	GetSystemGCIDLog(ctx context.Context, params *GetSystemGCIDLogParams) (*GetSystemGCIDLogOK, error)
+	/*
+	   GetSystemGCSchedule gets gc s schedule
+
+	   This endpoint is for get schedule of gc job.*/
+	GetSystemGCSchedule(ctx context.Context, params *GetSystemGCScheduleParams) (*GetSystemGCScheduleOK, error)
+	/*
+	   GetSystemScanAllSchedule gets scan all s schedule
+
+	   This endpoint is for getting a schedule for the scan all job, which scans all of images in Harbor.*/
+	GetSystemScanAllSchedule(ctx context.Context, params *GetSystemScanAllScheduleParams) (*GetSystemScanAllScheduleOK, error)
+	/*
+	   GetSysteminfo gets general system info
+
+	   This API is for retrieving general system info, this can be called by anonymous request.
+	*/
+	GetSysteminfo(ctx context.Context, params *GetSysteminfoParams) (*GetSysteminfoOK, error)
+	/*
+	   GetSysteminfoGetcert gets default root certificate
+
+	   This endpoint is for downloading a default root certificate.
+	*/
+	GetSysteminfoGetcert(ctx context.Context, params *GetSysteminfoGetcertParams) (*GetSysteminfoGetcertOK, error)
+	/*
+	   GetSysteminfoVolumes gets system volume info total free size
+
+	   This endpoint is for retrieving system volume info that only provides for admin user.
+	*/
+	GetSysteminfoVolumes(ctx context.Context, params *GetSysteminfoVolumesParams) (*GetSysteminfoVolumesOK, error)
+	/*
+	   GetUsergroups gets all user groups information
+
+	   Get all user groups information*/
+	GetUsergroups(ctx context.Context, params *GetUsergroupsParams) (*GetUsergroupsOK, error)
+	/*
+	   GetUsergroupsGroupID gets user group information
+
+	   Get user group information*/
+	GetUsergroupsGroupID(ctx context.Context, params *GetUsergroupsGroupIDParams) (*GetUsergroupsGroupIDOK, error)
+	/*
+	   GetUsers gets registered users of harbor
+
+	   This endpoint is for user to search registered users, support for filtering results with username.Notice, by now this operation is only for administrator.
+	*/
+	GetUsers(ctx context.Context, params *GetUsersParams) (*GetUsersOK, error)
+	/*
+	   GetUsersCurrent gets current user info
+
+	   This endpoint is to get the current user information.
+	*/
+	GetUsersCurrent(ctx context.Context, params *GetUsersCurrentParams) (*GetUsersCurrentOK, error)
+	/*
+	   GetUsersCurrentPermissions gets current user permissions
+
+	   This endpoint is to get the current user permissions.
+	*/
+	GetUsersCurrentPermissions(ctx context.Context, params *GetUsersCurrentPermissionsParams) (*GetUsersCurrentPermissionsOK, error)
+	/*
+	   GetUsersSearch searches users by username
+
+	   This endpoint is to search the users by username.
+	*/
+	GetUsersSearch(ctx context.Context, params *GetUsersSearchParams) (*GetUsersSearchOK, error)
+	/*
+	   GetUsersUserID gets a user s profile
+
+	   Get user's profile with user id.
+	*/
+	GetUsersUserID(ctx context.Context, params *GetUsersUserIDParams) (*GetUsersUserIDOK, error)
+	/*
+	   PatchRetentionsIDExecutionsEid stops a retention job
+
+	   Stop a Retention job, only support "stop" action now.*/
+	PatchRetentionsIDExecutionsEid(ctx context.Context, params *PatchRetentionsIDExecutionsEidParams) (*PatchRetentionsIDExecutionsEidOK, error)
 	/*
 	   PostChartrepoRepoChartsNameVersionLabels marks label to chart
 
@@ -38,6 +437,247 @@ type API interface {
 	   Test connection and authentication with email server.
 	*/
 	PostEmailPing(ctx context.Context, params *PostEmailPingParams) (*PostEmailPingOK, error)
+	/*
+	   PostLabels posts creates a label
+
+	   This endpoint let user creates a label.
+	*/
+	PostLabels(ctx context.Context, params *PostLabelsParams) (*PostLabelsCreated, error)
+	/*
+	   PostLdapPing pings available ldap service
+
+	   This endpoint ping the available ldap service for test related configuration parameters.
+	*/
+	PostLdapPing(ctx context.Context, params *PostLdapPingParams) (*PostLdapPingOK, error)
+	/*
+	   PostLdapUsersImport imports selected available ldap users
+
+	   This endpoint adds the selected available ldap users to harbor based on related configuration parameters from the system. System will try to guess the user email address and realname, add to harbor user information.
+	   If have errors when import user, will return the list of importing failed uid and the failed reason.
+	*/
+	PostLdapUsersImport(ctx context.Context, params *PostLdapUsersImportParams) (*PostLdapUsersImportOK, error)
+	/*
+	   PostProjectsProjectIDImmutabletagrules adds an immutable tag rule to current project
+
+	   This endpoint add an immutable tag rule to the project
+	*/
+	PostProjectsProjectIDImmutabletagrules(ctx context.Context, params *PostProjectsProjectIDImmutabletagrulesParams) (*PostProjectsProjectIDImmutabletagrulesOK, error)
+	/*
+	   PostProjectsProjectIDMembers creates project member
+
+	   Create project member relationship, the member can be one of the user_member and group_member,  The user_member need to specify user_id or username. If the user already exist in harbor DB, specify the user_id,  If does not exist in harbor DB, it will SearchAndOnBoard the user. The group_member need to specify id or ldap_group_dn. If the group already exist in harbor DB. specify the user group's id,  If does not exist, it will SearchAndOnBoard the group. */
+	PostProjectsProjectIDMembers(ctx context.Context, params *PostProjectsProjectIDMembersParams) (*PostProjectsProjectIDMembersCreated, error)
+	/*
+	   PostProjectsProjectIDMetadatas adds metadata for the project
+
+	   This endpoint is aimed to add metadata of a project.
+	*/
+	PostProjectsProjectIDMetadatas(ctx context.Context, params *PostProjectsProjectIDMetadatasParams) (*PostProjectsProjectIDMetadatasOK, error)
+	/*
+	   PostProjectsProjectIDRobots creates a robot account for project
+
+	   Create a robot account for project*/
+	PostProjectsProjectIDRobots(ctx context.Context, params *PostProjectsProjectIDRobotsParams) (*PostProjectsProjectIDRobotsCreated, error)
+	/*
+	   PostProjectsProjectIDWebhookPolicies creates project webhook policy
+
+	   This endpoint create a webhook policy if the project does not have one.
+	*/
+	PostProjectsProjectIDWebhookPolicies(ctx context.Context, params *PostProjectsProjectIDWebhookPoliciesParams) (*PostProjectsProjectIDWebhookPoliciesCreated, error)
+	/*
+	   PostProjectsProjectIDWebhookPoliciesTest tests project webhook connection
+
+	   This endpoint tests webhook connection of a project.
+	*/
+	PostProjectsProjectIDWebhookPoliciesTest(ctx context.Context, params *PostProjectsProjectIDWebhookPoliciesTestParams) (*PostProjectsProjectIDWebhookPoliciesTestOK, error)
+	/*
+	   PostRegistries creates a new registry
+
+	   This endpoint is for user to create a new registry.
+	*/
+	PostRegistries(ctx context.Context, params *PostRegistriesParams) (*PostRegistriesCreated, error)
+	/*
+	   PostRegistriesPing pings status of a registry
+
+	   This endpoint checks status of a registry, the registry can be given by ID or URL (together with credential)
+	*/
+	PostRegistriesPing(ctx context.Context, params *PostRegistriesPingParams) (*PostRegistriesPingOK, error)
+	/*
+	   PostReplicationExecutions starts one execution of the replication
+
+	   This endpoint is for user to start one execution of the replication.
+	*/
+	PostReplicationExecutions(ctx context.Context, params *PostReplicationExecutionsParams) (*PostReplicationExecutionsCreated, error)
+	/*
+	   PostReplicationPolicies creates a replication policy
+
+	   This endpoint let user create a replication policy
+	*/
+	PostReplicationPolicies(ctx context.Context, params *PostReplicationPoliciesParams) (*PostReplicationPoliciesCreated, error)
+	/*
+	   PostRetentions creates retention policy
+
+	   Create Retention Policy, you can reference metadatas API for the policy model.
+	   You can check project metadatas to find whether a retention policy is already binded.
+	   This method should only be called when no retention policy binded to project yet.
+	*/
+	PostRetentions(ctx context.Context, params *PostRetentionsParams) (*PostRetentionsCreated, error)
+	/*
+	   PostRetentionsIDExecutions triggers a retention job
+
+	   Trigger a Retention job, if dry_run is True, nothing would be deleted actually.*/
+	PostRetentionsIDExecutions(ctx context.Context, params *PostRetentionsIDExecutionsParams) (*PostRetentionsIDExecutionsOK, error)
+	/*
+	   PostScannersPing tests scanner registration settings
+
+	   Pings scanner adapter to test endpoint URL and authorization settings.
+	*/
+	PostScannersPing(ctx context.Context, params *PostScannersPingParams) (*PostScannersPingOK, error)
+	/*
+	   PostSystemGCSchedule creates a gc schedule
+
+	   This endpoint is for update gc schedule.
+	*/
+	PostSystemGCSchedule(ctx context.Context, params *PostSystemGCScheduleParams) (*PostSystemGCScheduleOK, error)
+	/*
+	   PostSystemOIDCPing tests the OIDC endpoint
+
+	   Test the OIDC endpoint, the setting of the endpoint is provided in the request.  This API can only be called by system admin.*/
+	PostSystemOIDCPing(ctx context.Context, params *PostSystemOIDCPingParams) (*PostSystemOIDCPingOK, error)
+	/*
+	   PostSystemScanAllSchedule creates a schedule or a manual trigger for the scan all job
+
+	   This endpoint is for creating a schedule or a manual trigger for the scan all job, which scans all of images in Harbor.
+	*/
+	PostSystemScanAllSchedule(ctx context.Context, params *PostSystemScanAllScheduleParams) (*PostSystemScanAllScheduleOK, error)
+	/*
+	   PostUsergroups creates user group
+
+	   Create user group information*/
+	PostUsergroups(ctx context.Context, params *PostUsergroupsParams) (*PostUsergroupsCreated, error)
+	/*
+	   PostUsers creates a new user account
+
+	   This endpoint is to create a user if the user does not already exist.
+	*/
+	PostUsers(ctx context.Context, params *PostUsersParams) (*PostUsersCreated, error)
+	/*
+	   PutConfigurations modifies system configurations
+
+	   This endpoint is for modifying system configurations that only provides for admin user.
+	*/
+	PutConfigurations(ctx context.Context, params *PutConfigurationsParams) (*PutConfigurationsOK, error)
+	/*
+	   PutLabelsID updates the label properties
+
+	   This endpoint let user update label properties.
+	*/
+	PutLabelsID(ctx context.Context, params *PutLabelsIDParams) (*PutLabelsIDOK, error)
+	/*
+	   PutProjectsProjectIDImmutabletagrulesID updates the immutable tag rule or enable or disable the rule*/
+	PutProjectsProjectIDImmutabletagrulesID(ctx context.Context, params *PutProjectsProjectIDImmutabletagrulesIDParams) (*PutProjectsProjectIDImmutabletagrulesIDOK, error)
+	/*
+	   PutProjectsProjectIDMembersMid updates project member
+
+	   Update project member relationship*/
+	PutProjectsProjectIDMembersMid(ctx context.Context, params *PutProjectsProjectIDMembersMidParams) (*PutProjectsProjectIDMembersMidOK, error)
+	/*
+	   PutProjectsProjectIDMetadatasMetaName updates metadata of a project
+
+	   This endpoint is aimed to update the metadata of a project.
+	*/
+	PutProjectsProjectIDMetadatasMetaName(ctx context.Context, params *PutProjectsProjectIDMetadatasMetaNameParams) (*PutProjectsProjectIDMetadatasMetaNameOK, error)
+	/*
+	   PutProjectsProjectIDRobotsRobotID updates status of robot account
+
+	   Used to disable/enable a specified robot account.*/
+	PutProjectsProjectIDRobotsRobotID(ctx context.Context, params *PutProjectsProjectIDRobotsRobotIDParams) (*PutProjectsProjectIDRobotsRobotIDOK, error)
+	/*
+	   PutProjectsProjectIDWebhookPoliciesPolicyID updates webhook policy of a project
+
+	   This endpoint is aimed to update the webhook policy of a project.
+	*/
+	PutProjectsProjectIDWebhookPoliciesPolicyID(ctx context.Context, params *PutProjectsProjectIDWebhookPoliciesPolicyIDParams) (*PutProjectsProjectIDWebhookPoliciesPolicyIDOK, error)
+	/*
+	   PutQuotasID updates the specified quota
+
+	   Update hard limits of the specified quota*/
+	PutQuotasID(ctx context.Context, params *PutQuotasIDParams) (*PutQuotasIDOK, error)
+	/*
+	   PutRegistriesID updates a given registry
+
+	   This endpoint is for update a given registry.
+	*/
+	PutRegistriesID(ctx context.Context, params *PutRegistriesIDParams) (*PutRegistriesIDOK, error)
+	/*
+	   PutReplicationExecutionsID stops the execution of the replication
+
+	   This endpoint is for user to stop one execution of the replication.
+	*/
+	PutReplicationExecutionsID(ctx context.Context, params *PutReplicationExecutionsIDParams) (*PutReplicationExecutionsIDOK, error)
+	/*
+	   PutReplicationPoliciesID updates the replication policy
+
+	   This endpoint let user update policy.
+	*/
+	PutReplicationPoliciesID(ctx context.Context, params *PutReplicationPoliciesIDParams) (*PutReplicationPoliciesIDOK, error)
+	/*
+	   PutRetentionsID updates retention policy
+
+	   Update Retention Policy, you can reference metadatas API for the policy model.
+	   You can check project metadatas to find whether a retention policy is already binded.
+	   This method should only be called when retention policy has already binded to project.
+	*/
+	PutRetentionsID(ctx context.Context, params *PutRetentionsIDParams) (*PutRetentionsIDOK, error)
+	/*
+	   PutSystemCVEAllowlist updates the system level allowlist of CVE
+
+	   This API overwrites the system level allowlist of CVE with the list in request body.  Only system Admin has permission to call this API.*/
+	PutSystemCVEAllowlist(ctx context.Context, params *PutSystemCVEAllowlistParams) (*PutSystemCVEAllowlistOK, error)
+	/*
+	   PutSystemGCSchedule updates gc s schedule
+
+	   This endpoint is for update gc schedule.
+	*/
+	PutSystemGCSchedule(ctx context.Context, params *PutSystemGCScheduleParams) (*PutSystemGCScheduleOK, error)
+	/*
+	   PutSystemScanAllSchedule updates scan all s schedule
+
+	   This endpoint is for updating the schedule of scan all job, which scans all of images in Harbor.
+	*/
+	PutSystemScanAllSchedule(ctx context.Context, params *PutSystemScanAllScheduleParams) (*PutSystemScanAllScheduleOK, error)
+	/*
+	   PutUsergroupsGroupID updates group information
+
+	   Update user group information*/
+	PutUsergroupsGroupID(ctx context.Context, params *PutUsergroupsGroupIDParams) (*PutUsergroupsGroupIDOK, error)
+	/*
+	   PutUsersUserID updates a registered user to change his profile
+
+	   This endpoint let a registered user change his profile.
+	*/
+	PutUsersUserID(ctx context.Context, params *PutUsersUserIDParams) (*PutUsersUserIDOK, error)
+	/*
+	   PutUsersUserIDCliSecret sets c l i secret for a user
+
+	   This endpoint let user generate a new CLI secret for himself.  This API only works when auth mode is set to 'OIDC'.
+	   Once this API returns with successful status, the old secret will be invalid, as there will be only one CLI secret
+	   for a user.
+	*/
+	PutUsersUserIDCliSecret(ctx context.Context, params *PutUsersUserIDCliSecretParams) (*PutUsersUserIDCliSecretOK, error)
+	/*
+	   PutUsersUserIDPassword changes the password on a user that already exists
+
+	   This endpoint is for user to update password. Users with the admin role can change any user's password. Guest users can change only their own password.
+	*/
+	PutUsersUserIDPassword(ctx context.Context, params *PutUsersUserIDPasswordParams) (*PutUsersUserIDPasswordOK, error)
+	/*
+	   PutUsersUserIDSysadmin updates a registered user to change to be an administrator of harbor
+
+	   This endpoint let a registered user change to be an administrator
+	   of Harbor.
+	*/
+	PutUsersUserIDSysadmin(ctx context.Context, params *PutUsersUserIDSysadminParams) (*PutUsersUserIDSysadminOK, error)
 }
 
 // New creates a new products API client.
@@ -86,9 +726,276 @@ func (a *Client) DeleteChartrepoRepoChartsNameVersionLabelsID(ctx context.Contex
 }
 
 /*
-GetChartrepoRepoChartsNameVersionLabels returns the attached labels of chart
+DeleteLabelsID deletes the label specified by ID
 
-Return the attached labels of the specified chart version.
+Delete the label specified by ID.
+*/
+func (a *Client) DeleteLabelsID(ctx context.Context, params *DeleteLabelsIDParams) (*DeleteLabelsIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "DeleteLabelsID",
+		Method:             "DELETE",
+		PathPattern:        "/labels/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteLabelsIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteLabelsIDOK), nil
+
+}
+
+/*
+DeleteProjectsProjectIDImmutabletagrulesID deletes the immutable tag rule
+*/
+func (a *Client) DeleteProjectsProjectIDImmutabletagrulesID(ctx context.Context, params *DeleteProjectsProjectIDImmutabletagrulesIDParams) (*DeleteProjectsProjectIDImmutabletagrulesIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "DeleteProjectsProjectIDImmutabletagrulesID",
+		Method:             "DELETE",
+		PathPattern:        "/projects/{project_id}/immutabletagrules/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteProjectsProjectIDImmutabletagrulesIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteProjectsProjectIDImmutabletagrulesIDOK), nil
+
+}
+
+/*
+DeleteProjectsProjectIDMembersMid deletes project member
+*/
+func (a *Client) DeleteProjectsProjectIDMembersMid(ctx context.Context, params *DeleteProjectsProjectIDMembersMidParams) (*DeleteProjectsProjectIDMembersMidOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "DeleteProjectsProjectIDMembersMid",
+		Method:             "DELETE",
+		PathPattern:        "/projects/{project_id}/members/{mid}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteProjectsProjectIDMembersMidReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteProjectsProjectIDMembersMidOK), nil
+
+}
+
+/*
+DeleteProjectsProjectIDMetadatasMetaName deletes metadata of a project
+
+This endpoint is aimed to delete metadata of a project.
+*/
+func (a *Client) DeleteProjectsProjectIDMetadatasMetaName(ctx context.Context, params *DeleteProjectsProjectIDMetadatasMetaNameParams) (*DeleteProjectsProjectIDMetadatasMetaNameOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "DeleteProjectsProjectIDMetadatasMetaName",
+		Method:             "DELETE",
+		PathPattern:        "/projects/{project_id}/metadatas/{meta_name}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteProjectsProjectIDMetadatasMetaNameReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteProjectsProjectIDMetadatasMetaNameOK), nil
+
+}
+
+/*
+DeleteProjectsProjectIDRobotsRobotID deletes the specified robot account
+
+Delete the specified robot account
+*/
+func (a *Client) DeleteProjectsProjectIDRobotsRobotID(ctx context.Context, params *DeleteProjectsProjectIDRobotsRobotIDParams) (*DeleteProjectsProjectIDRobotsRobotIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "DeleteProjectsProjectIDRobotsRobotID",
+		Method:             "DELETE",
+		PathPattern:        "/projects/{project_id}/robots/{robot_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteProjectsProjectIDRobotsRobotIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteProjectsProjectIDRobotsRobotIDOK), nil
+
+}
+
+/*
+DeleteProjectsProjectIDWebhookPoliciesPolicyID deletes webhook policy of a project
+
+This endpoint is aimed to delete webhookpolicy of a project.
+*/
+func (a *Client) DeleteProjectsProjectIDWebhookPoliciesPolicyID(ctx context.Context, params *DeleteProjectsProjectIDWebhookPoliciesPolicyIDParams) (*DeleteProjectsProjectIDWebhookPoliciesPolicyIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "DeleteProjectsProjectIDWebhookPoliciesPolicyID",
+		Method:             "DELETE",
+		PathPattern:        "/projects/{project_id}/webhook/policies/{policy_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteProjectsProjectIDWebhookPoliciesPolicyIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteProjectsProjectIDWebhookPoliciesPolicyIDOK), nil
+
+}
+
+/*
+DeleteRegistriesID deletes specific registry
+
+This endpoint is for to delete specific registry.
+*/
+func (a *Client) DeleteRegistriesID(ctx context.Context, params *DeleteRegistriesIDParams) (*DeleteRegistriesIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "DeleteRegistriesID",
+		Method:             "DELETE",
+		PathPattern:        "/registries/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteRegistriesIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteRegistriesIDOK), nil
+
+}
+
+/*
+DeleteReplicationPoliciesID deletes the replication policy specified by ID
+
+Delete the replication policy specified by ID.
+*/
+func (a *Client) DeleteReplicationPoliciesID(ctx context.Context, params *DeleteReplicationPoliciesIDParams) (*DeleteReplicationPoliciesIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "DeleteReplicationPoliciesID",
+		Method:             "DELETE",
+		PathPattern:        "/replication/policies/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteReplicationPoliciesIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteReplicationPoliciesIDOK), nil
+
+}
+
+/*
+DeleteUsergroupsGroupID deletes user group
+
+Delete user group
+*/
+func (a *Client) DeleteUsergroupsGroupID(ctx context.Context, params *DeleteUsergroupsGroupIDParams) (*DeleteUsergroupsGroupIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "DeleteUsergroupsGroupID",
+		Method:             "DELETE",
+		PathPattern:        "/usergroups/{group_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteUsergroupsGroupIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteUsergroupsGroupIDOK), nil
+
+}
+
+/*
+DeleteUsersUserID marks a registered user as be removed
+
+This endpoint let administrator of Harbor mark a registered user as
+be removed.It actually won't be deleted from DB.
+*/
+func (a *Client) DeleteUsersUserID(ctx context.Context, params *DeleteUsersUserIDParams) (*DeleteUsersUserIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "DeleteUsersUserID",
+		Method:             "DELETE",
+		PathPattern:        "/users/{user_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &DeleteUsersUserIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteUsersUserIDOK), nil
+
+}
+
+/*
+GetChartrepoRepoChartsNameVersionLabels returns the attahced labels of chart
+
+Return the attahced labels of the specified chart version.
 */
 func (a *Client) GetChartrepoRepoChartsNameVersionLabels(ctx context.Context, params *GetChartrepoRepoChartsNameVersionLabelsParams) (*GetChartrepoRepoChartsNameVersionLabelsOK, error) {
 
@@ -109,6 +1016,1680 @@ func (a *Client) GetChartrepoRepoChartsNameVersionLabels(ctx context.Context, pa
 		return nil, err
 	}
 	return result.(*GetChartrepoRepoChartsNameVersionLabelsOK), nil
+
+}
+
+/*
+GetConfigurations gets system configurations
+
+This endpoint is for retrieving system configurations that only provides for admin user.
+*/
+func (a *Client) GetConfigurations(ctx context.Context, params *GetConfigurationsParams) (*GetConfigurationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetConfigurations",
+		Method:             "GET",
+		PathPattern:        "/configurations",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetConfigurationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConfigurationsOK), nil
+
+}
+
+/*
+GetHealth healths check API
+
+The endpoint returns the health stauts of the system.
+*/
+func (a *Client) GetHealth(ctx context.Context, params *GetHealthParams) (*GetHealthOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetHealth",
+		Method:             "GET",
+		PathPattern:        "/health",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetHealthReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetHealthOK), nil
+
+}
+
+/*
+GetLabels lists labels according to the query strings
+
+This endpoint let user list labels by name, scope and project_id
+*/
+func (a *Client) GetLabels(ctx context.Context, params *GetLabelsParams) (*GetLabelsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetLabels",
+		Method:             "GET",
+		PathPattern:        "/labels",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetLabelsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLabelsOK), nil
+
+}
+
+/*
+GetLabelsID gets the label specified by ID
+
+This endpoint let user get the label by specific ID.
+*/
+func (a *Client) GetLabelsID(ctx context.Context, params *GetLabelsIDParams) (*GetLabelsIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetLabelsID",
+		Method:             "GET",
+		PathPattern:        "/labels/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetLabelsIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLabelsIDOK), nil
+
+}
+
+/*
+GetLdapGroupsSearch searches available ldap groups
+
+This endpoint searches the available ldap groups based on related configuration parameters. support to search by groupname or groupdn.
+*/
+func (a *Client) GetLdapGroupsSearch(ctx context.Context, params *GetLdapGroupsSearchParams) (*GetLdapGroupsSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetLdapGroupsSearch",
+		Method:             "GET",
+		PathPattern:        "/ldap/groups/search",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetLdapGroupsSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLdapGroupsSearchOK), nil
+
+}
+
+/*
+GetLdapUsersSearch searches available ldap users
+
+This endpoint searches the available ldap users based on related configuration parameters. Support searched by input ladp configuration, load configuration from the system and specific filter.
+*/
+func (a *Client) GetLdapUsersSearch(ctx context.Context, params *GetLdapUsersSearchParams) (*GetLdapUsersSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetLdapUsersSearch",
+		Method:             "GET",
+		PathPattern:        "/ldap/users/search",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetLdapUsersSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLdapUsersSearchOK), nil
+
+}
+
+/*
+GetProjectsProjectIDImmutabletagrules lists all immutable tag rules of current project
+
+This endpoint returns the immutable tag rules of a project
+*/
+func (a *Client) GetProjectsProjectIDImmutabletagrules(ctx context.Context, params *GetProjectsProjectIDImmutabletagrulesParams) (*GetProjectsProjectIDImmutabletagrulesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDImmutabletagrules",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/immutabletagrules",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDImmutabletagrulesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDImmutabletagrulesOK), nil
+
+}
+
+/*
+GetProjectsProjectIDMembers gets all project member information
+
+Get all project member information
+*/
+func (a *Client) GetProjectsProjectIDMembers(ctx context.Context, params *GetProjectsProjectIDMembersParams) (*GetProjectsProjectIDMembersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDMembers",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/members",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDMembersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDMembersOK), nil
+
+}
+
+/*
+GetProjectsProjectIDMembersMid gets the project member information
+
+Get the project member information
+*/
+func (a *Client) GetProjectsProjectIDMembersMid(ctx context.Context, params *GetProjectsProjectIDMembersMidParams) (*GetProjectsProjectIDMembersMidOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDMembersMid",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/members/{mid}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDMembersMidReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDMembersMidOK), nil
+
+}
+
+/*
+GetProjectsProjectIDMetadatas gets project metadata
+
+This endpoint returns metadata of the project specified by project ID.
+*/
+func (a *Client) GetProjectsProjectIDMetadatas(ctx context.Context, params *GetProjectsProjectIDMetadatasParams) (*GetProjectsProjectIDMetadatasOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDMetadatas",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/metadatas",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDMetadatasReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDMetadatasOK), nil
+
+}
+
+/*
+GetProjectsProjectIDMetadatasMetaName gets project metadata
+
+This endpoint returns specified metadata of a project.
+*/
+func (a *Client) GetProjectsProjectIDMetadatasMetaName(ctx context.Context, params *GetProjectsProjectIDMetadatasMetaNameParams) (*GetProjectsProjectIDMetadatasMetaNameOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDMetadatasMetaName",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/metadatas/{meta_name}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDMetadatasMetaNameReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDMetadatasMetaNameOK), nil
+
+}
+
+/*
+GetProjectsProjectIDRobots gets all robot accounts of specified project
+
+Get all robot accounts of specified project
+*/
+func (a *Client) GetProjectsProjectIDRobots(ctx context.Context, params *GetProjectsProjectIDRobotsParams) (*GetProjectsProjectIDRobotsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDRobots",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/robots",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDRobotsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDRobotsOK), nil
+
+}
+
+/*
+GetProjectsProjectIDRobotsRobotID returns the infor of the specified robot account
+
+Return the infor of the specified robot account.
+*/
+func (a *Client) GetProjectsProjectIDRobotsRobotID(ctx context.Context, params *GetProjectsProjectIDRobotsRobotIDParams) (*GetProjectsProjectIDRobotsRobotIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDRobotsRobotID",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/robots/{robot_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDRobotsRobotIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDRobotsRobotIDOK), nil
+
+}
+
+/*
+GetProjectsProjectIDScanner gets project level scanner
+
+Get the scanner registration of the specified project. If no scanner registration is configured for the specified project, the system default scanner registration will be returned.
+*/
+func (a *Client) GetProjectsProjectIDScanner(ctx context.Context, params *GetProjectsProjectIDScannerParams) (*GetProjectsProjectIDScannerOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDScanner",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/scanner",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDScannerReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDScannerOK), nil
+
+}
+
+/*
+GetProjectsProjectIDScannerCandidates gets scanner registration candidates for configurating project level scanner
+
+Retrieve the system configured scanner registrations as candidates of setting project level scanner.
+*/
+func (a *Client) GetProjectsProjectIDScannerCandidates(ctx context.Context, params *GetProjectsProjectIDScannerCandidatesParams) (*GetProjectsProjectIDScannerCandidatesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDScannerCandidates",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/scanner/candidates",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDScannerCandidatesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDScannerCandidatesOK), nil
+
+}
+
+/*
+GetProjectsProjectIDWebhookEvents gets supported event types and notify types
+
+Get supportted event types and notify types.
+*/
+func (a *Client) GetProjectsProjectIDWebhookEvents(ctx context.Context, params *GetProjectsProjectIDWebhookEventsParams) (*GetProjectsProjectIDWebhookEventsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDWebhookEvents",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/webhook/events",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDWebhookEventsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDWebhookEventsOK), nil
+
+}
+
+/*
+GetProjectsProjectIDWebhookJobs lists project webhook jobs
+
+This endpoint returns webhook jobs of a project.
+*/
+func (a *Client) GetProjectsProjectIDWebhookJobs(ctx context.Context, params *GetProjectsProjectIDWebhookJobsParams) (*GetProjectsProjectIDWebhookJobsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDWebhookJobs",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/webhook/jobs",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDWebhookJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDWebhookJobsOK), nil
+
+}
+
+/*
+GetProjectsProjectIDWebhookLasttrigger gets project webhook policy last trigger info
+
+This endpoint returns last trigger information of project webhook policy.
+*/
+func (a *Client) GetProjectsProjectIDWebhookLasttrigger(ctx context.Context, params *GetProjectsProjectIDWebhookLasttriggerParams) (*GetProjectsProjectIDWebhookLasttriggerOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDWebhookLasttrigger",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/webhook/lasttrigger",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDWebhookLasttriggerReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDWebhookLasttriggerOK), nil
+
+}
+
+/*
+GetProjectsProjectIDWebhookPolicies lists project webhook policies
+
+This endpoint returns webhook policies of a project.
+*/
+func (a *Client) GetProjectsProjectIDWebhookPolicies(ctx context.Context, params *GetProjectsProjectIDWebhookPoliciesParams) (*GetProjectsProjectIDWebhookPoliciesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDWebhookPolicies",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/webhook/policies",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDWebhookPoliciesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDWebhookPoliciesOK), nil
+
+}
+
+/*
+GetProjectsProjectIDWebhookPoliciesPolicyID gets project webhook policy
+
+This endpoint returns specified webhook policy of a project.
+*/
+func (a *Client) GetProjectsProjectIDWebhookPoliciesPolicyID(ctx context.Context, params *GetProjectsProjectIDWebhookPoliciesPolicyIDParams) (*GetProjectsProjectIDWebhookPoliciesPolicyIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetProjectsProjectIDWebhookPoliciesPolicyID",
+		Method:             "GET",
+		PathPattern:        "/projects/{project_id}/webhook/policies/{policy_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetProjectsProjectIDWebhookPoliciesPolicyIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetProjectsProjectIDWebhookPoliciesPolicyIDOK), nil
+
+}
+
+/*
+GetQuotas lists quotas
+
+List quotas
+*/
+func (a *Client) GetQuotas(ctx context.Context, params *GetQuotasParams) (*GetQuotasOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetQuotas",
+		Method:             "GET",
+		PathPattern:        "/quotas",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetQuotasReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetQuotasOK), nil
+
+}
+
+/*
+GetQuotasID gets the specified quota
+
+Get the specified quota
+*/
+func (a *Client) GetQuotasID(ctx context.Context, params *GetQuotasIDParams) (*GetQuotasIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetQuotasID",
+		Method:             "GET",
+		PathPattern:        "/quotas/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetQuotasIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetQuotasIDOK), nil
+
+}
+
+/*
+GetRegistries lists registries
+
+List registries according to the query.
+*/
+func (a *Client) GetRegistries(ctx context.Context, params *GetRegistriesParams) (*GetRegistriesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetRegistries",
+		Method:             "GET",
+		PathPattern:        "/registries",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetRegistriesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRegistriesOK), nil
+
+}
+
+/*
+GetRegistriesID gets registry
+
+This endpoint is for get specific registry.
+*/
+func (a *Client) GetRegistriesID(ctx context.Context, params *GetRegistriesIDParams) (*GetRegistriesIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetRegistriesID",
+		Method:             "GET",
+		PathPattern:        "/registries/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetRegistriesIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRegistriesIDOK), nil
+
+}
+
+/*
+GetRegistriesIDInfo gets registry info
+
+Get the info of one specific registry.
+*/
+func (a *Client) GetRegistriesIDInfo(ctx context.Context, params *GetRegistriesIDInfoParams) (*GetRegistriesIDInfoOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetRegistriesIDInfo",
+		Method:             "GET",
+		PathPattern:        "/registries/{id}/info",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetRegistriesIDInfoReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRegistriesIDInfoOK), nil
+
+}
+
+/*
+GetRegistriesIDNamespace lists namespaces of registry
+
+This endpoint let user list namespaces of registry according to query.
+*/
+func (a *Client) GetRegistriesIDNamespace(ctx context.Context, params *GetRegistriesIDNamespaceParams) (*GetRegistriesIDNamespaceOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetRegistriesIDNamespace",
+		Method:             "GET",
+		PathPattern:        "/registries/{id}/namespace",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetRegistriesIDNamespaceReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRegistriesIDNamespaceOK), nil
+
+}
+
+/*
+GetReplicationAdapters lists supported adapters
+
+This endpoint let user list supported adapters.
+*/
+func (a *Client) GetReplicationAdapters(ctx context.Context, params *GetReplicationAdaptersParams) (*GetReplicationAdaptersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetReplicationAdapters",
+		Method:             "GET",
+		PathPattern:        "/replication/adapters",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetReplicationAdaptersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetReplicationAdaptersOK), nil
+
+}
+
+/*
+GetReplicationExecutions lists replication executions
+
+This endpoint let user list replication executions.
+*/
+func (a *Client) GetReplicationExecutions(ctx context.Context, params *GetReplicationExecutionsParams) (*GetReplicationExecutionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetReplicationExecutions",
+		Method:             "GET",
+		PathPattern:        "/replication/executions",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetReplicationExecutionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetReplicationExecutionsOK), nil
+
+}
+
+/*
+GetReplicationExecutionsID gets the execution of the replication
+
+This endpoint is for user to get one execution of the replication.
+*/
+func (a *Client) GetReplicationExecutionsID(ctx context.Context, params *GetReplicationExecutionsIDParams) (*GetReplicationExecutionsIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetReplicationExecutionsID",
+		Method:             "GET",
+		PathPattern:        "/replication/executions/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetReplicationExecutionsIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetReplicationExecutionsIDOK), nil
+
+}
+
+/*
+GetReplicationExecutionsIDTasks gets the task list of one execution
+
+This endpoint is for user to get the task list of one execution.
+*/
+func (a *Client) GetReplicationExecutionsIDTasks(ctx context.Context, params *GetReplicationExecutionsIDTasksParams) (*GetReplicationExecutionsIDTasksOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetReplicationExecutionsIDTasks",
+		Method:             "GET",
+		PathPattern:        "/replication/executions/{id}/tasks",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetReplicationExecutionsIDTasksReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetReplicationExecutionsIDTasksOK), nil
+
+}
+
+/*
+GetReplicationExecutionsIDTasksTaskIDLog gets the log of one task
+
+This endpoint is for user to get the log of one task.
+*/
+func (a *Client) GetReplicationExecutionsIDTasksTaskIDLog(ctx context.Context, params *GetReplicationExecutionsIDTasksTaskIDLogParams) (*GetReplicationExecutionsIDTasksTaskIDLogOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetReplicationExecutionsIDTasksTaskIDLog",
+		Method:             "GET",
+		PathPattern:        "/replication/executions/{id}/tasks/{task_id}/log",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetReplicationExecutionsIDTasksTaskIDLogReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetReplicationExecutionsIDTasksTaskIDLogOK), nil
+
+}
+
+/*
+GetReplicationPolicies lists replication policies
+
+This endpoint let user list replication policies
+*/
+func (a *Client) GetReplicationPolicies(ctx context.Context, params *GetReplicationPoliciesParams) (*GetReplicationPoliciesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetReplicationPolicies",
+		Method:             "GET",
+		PathPattern:        "/replication/policies",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetReplicationPoliciesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetReplicationPoliciesOK), nil
+
+}
+
+/*
+GetReplicationPoliciesID gets replication policy
+
+This endpoint let user get replication policy by specific ID.
+*/
+func (a *Client) GetReplicationPoliciesID(ctx context.Context, params *GetReplicationPoliciesIDParams) (*GetReplicationPoliciesIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetReplicationPoliciesID",
+		Method:             "GET",
+		PathPattern:        "/replication/policies/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetReplicationPoliciesIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetReplicationPoliciesIDOK), nil
+
+}
+
+/*
+GetRetentionsID gets retention policy
+
+Get Retention Policy.
+*/
+func (a *Client) GetRetentionsID(ctx context.Context, params *GetRetentionsIDParams) (*GetRetentionsIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetRetentionsID",
+		Method:             "GET",
+		PathPattern:        "/retentions/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetRetentionsIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRetentionsIDOK), nil
+
+}
+
+/*
+GetRetentionsIDExecutions gets a retention job
+
+Get a Retention job, job status may be delayed before job service schedule it up.
+*/
+func (a *Client) GetRetentionsIDExecutions(ctx context.Context, params *GetRetentionsIDExecutionsParams) (*GetRetentionsIDExecutionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetRetentionsIDExecutions",
+		Method:             "GET",
+		PathPattern:        "/retentions/{id}/executions",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetRetentionsIDExecutionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRetentionsIDExecutionsOK), nil
+
+}
+
+/*
+GetRetentionsIDExecutionsEidTasks gets retention job tasks
+
+Get Retention job tasks, each repository as a task.
+*/
+func (a *Client) GetRetentionsIDExecutionsEidTasks(ctx context.Context, params *GetRetentionsIDExecutionsEidTasksParams) (*GetRetentionsIDExecutionsEidTasksOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetRetentionsIDExecutionsEidTasks",
+		Method:             "GET",
+		PathPattern:        "/retentions/{id}/executions/{eid}/tasks",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetRetentionsIDExecutionsEidTasksReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRetentionsIDExecutionsEidTasksOK), nil
+
+}
+
+/*
+GetRetentionsIDExecutionsEidTasksTid gets retention job task log
+
+Get Retention job task log, tags ratain or deletion detail will be shown in a table.
+*/
+func (a *Client) GetRetentionsIDExecutionsEidTasksTid(ctx context.Context, params *GetRetentionsIDExecutionsEidTasksTidParams) (*GetRetentionsIDExecutionsEidTasksTidOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetRetentionsIDExecutionsEidTasksTid",
+		Method:             "GET",
+		PathPattern:        "/retentions/{id}/executions/{eid}/tasks/{tid}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetRetentionsIDExecutionsEidTasksTidReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRetentionsIDExecutionsEidTasksTidOK), nil
+
+}
+
+/*
+GetRetentionsMetadatas gets retention metadatas
+
+Get Retention Metadatas.
+*/
+func (a *Client) GetRetentionsMetadatas(ctx context.Context, params *GetRetentionsMetadatasParams) (*GetRetentionsMetadatasOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetRetentionsMetadatas",
+		Method:             "GET",
+		PathPattern:        "/retentions/metadatas",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetRetentionsMetadatasReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRetentionsMetadatasOK), nil
+
+}
+
+/*
+GetScanners lists scanner registrations
+
+Returns a list of currently configured scanner registrations.
+*/
+func (a *Client) GetScanners(ctx context.Context, params *GetScannersParams) (*GetScannersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetScanners",
+		Method:             "GET",
+		PathPattern:        "/scanners",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetScannersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetScannersOK), nil
+
+}
+
+/*
+GetScannersRegistrationID gets a scanner registration details
+
+Retruns the details of the specified scanner registration.
+*/
+func (a *Client) GetScannersRegistrationID(ctx context.Context, params *GetScannersRegistrationIDParams) (*GetScannersRegistrationIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetScannersRegistrationID",
+		Method:             "GET",
+		PathPattern:        "/scanners/{registration_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetScannersRegistrationIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetScannersRegistrationIDOK), nil
+
+}
+
+/*
+GetScannersRegistrationIDMetadata gets the metadata of the specified scanner registration
+
+Get the metadata of the specified scanner registration, including the capabilities and customzied properties.
+*/
+func (a *Client) GetScannersRegistrationIDMetadata(ctx context.Context, params *GetScannersRegistrationIDMetadataParams) (*GetScannersRegistrationIDMetadataOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetScannersRegistrationIDMetadata",
+		Method:             "GET",
+		PathPattern:        "/scanners/{registration_id}/metadata",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetScannersRegistrationIDMetadataReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetScannersRegistrationIDMetadataOK), nil
+
+}
+
+/*
+GetScansAllMetrics gets the metrics of the latest scan all process
+
+Get the metrics of the latest scan all process
+*/
+func (a *Client) GetScansAllMetrics(ctx context.Context, params *GetScansAllMetricsParams) (*GetScansAllMetricsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetScansAllMetrics",
+		Method:             "GET",
+		PathPattern:        "/scans/all/metrics",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetScansAllMetricsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetScansAllMetricsOK), nil
+
+}
+
+/*
+GetScansScheduleMetrics gets the metrics of the latest scheduled scan all process
+
+Get the metrics of the latest scheduled scan all process
+*/
+func (a *Client) GetScansScheduleMetrics(ctx context.Context, params *GetScansScheduleMetricsParams) (*GetScansScheduleMetricsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetScansScheduleMetrics",
+		Method:             "GET",
+		PathPattern:        "/scans/schedule/metrics",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetScansScheduleMetricsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetScansScheduleMetricsOK), nil
+
+}
+
+/*
+GetSearch searches for projects repositories and helm charts
+
+The Search endpoint returns information about the projects ,repositories  and helm charts offered at public status or related to the current logged in user. The response includes the project, repository list and charts in a proper display order.
+*/
+func (a *Client) GetSearch(ctx context.Context, params *GetSearchParams) (*GetSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetSearch",
+		Method:             "GET",
+		PathPattern:        "/search",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSearchOK), nil
+
+}
+
+/*
+GetStatistics gets projects number and repositories number relevant to the user
+
+This endpoint is aimed to statistic all of the projects number and repositories number relevant to the logined user, also the public projects number and repositories number. If the user is admin, he can also get total projects number and total repositories number.
+*/
+func (a *Client) GetStatistics(ctx context.Context, params *GetStatisticsParams) (*GetStatisticsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetStatistics",
+		Method:             "GET",
+		PathPattern:        "/statistics",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetStatisticsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetStatisticsOK), nil
+
+}
+
+/*
+GetSystemCVEAllowlist gets the system level allowlist of CVE
+
+Get the system level allowlist of CVE.  This API can be called by all authenticated users.
+*/
+func (a *Client) GetSystemCVEAllowlist(ctx context.Context, params *GetSystemCVEAllowlistParams) (*GetSystemCVEAllowlistOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetSystemCVEAllowlist",
+		Method:             "GET",
+		PathPattern:        "/system/CVEAllowlist",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSystemCVEAllowlistReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSystemCVEAllowlistOK), nil
+
+}
+
+/*
+GetSystemGC gets gc results
+
+This endpoint let user get latest ten gc results.
+*/
+func (a *Client) GetSystemGC(ctx context.Context, params *GetSystemGCParams) (*GetSystemGCOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetSystemGC",
+		Method:             "GET",
+		PathPattern:        "/system/gc",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSystemGCReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSystemGCOK), nil
+
+}
+
+/*
+GetSystemGCID gets gc status
+
+This endpoint let user get gc status filtered by specific ID.
+*/
+func (a *Client) GetSystemGCID(ctx context.Context, params *GetSystemGCIDParams) (*GetSystemGCIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetSystemGCID",
+		Method:             "GET",
+		PathPattern:        "/system/gc/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSystemGCIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSystemGCIDOK), nil
+
+}
+
+/*
+GetSystemGCIDLog gets gc job log
+
+This endpoint let user get gc job logs filtered by specific ID.
+*/
+func (a *Client) GetSystemGCIDLog(ctx context.Context, params *GetSystemGCIDLogParams) (*GetSystemGCIDLogOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetSystemGCIDLog",
+		Method:             "GET",
+		PathPattern:        "/system/gc/{id}/log",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSystemGCIDLogReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSystemGCIDLogOK), nil
+
+}
+
+/*
+GetSystemGCSchedule gets gc s schedule
+
+This endpoint is for get schedule of gc job.
+*/
+func (a *Client) GetSystemGCSchedule(ctx context.Context, params *GetSystemGCScheduleParams) (*GetSystemGCScheduleOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetSystemGCSchedule",
+		Method:             "GET",
+		PathPattern:        "/system/gc/schedule",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSystemGCScheduleReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSystemGCScheduleOK), nil
+
+}
+
+/*
+GetSystemScanAllSchedule gets scan all s schedule
+
+This endpoint is for getting a schedule for the scan all job, which scans all of images in Harbor.
+*/
+func (a *Client) GetSystemScanAllSchedule(ctx context.Context, params *GetSystemScanAllScheduleParams) (*GetSystemScanAllScheduleOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetSystemScanAllSchedule",
+		Method:             "GET",
+		PathPattern:        "/system/scanAll/schedule",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSystemScanAllScheduleReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSystemScanAllScheduleOK), nil
+
+}
+
+/*
+GetSysteminfo gets general system info
+
+This API is for retrieving general system info, this can be called by anonymous request.
+*/
+func (a *Client) GetSysteminfo(ctx context.Context, params *GetSysteminfoParams) (*GetSysteminfoOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetSysteminfo",
+		Method:             "GET",
+		PathPattern:        "/systeminfo",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSysteminfoReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSysteminfoOK), nil
+
+}
+
+/*
+GetSysteminfoGetcert gets default root certificate
+
+This endpoint is for downloading a default root certificate.
+*/
+func (a *Client) GetSysteminfoGetcert(ctx context.Context, params *GetSysteminfoGetcertParams) (*GetSysteminfoGetcertOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetSysteminfoGetcert",
+		Method:             "GET",
+		PathPattern:        "/systeminfo/getcert",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSysteminfoGetcertReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSysteminfoGetcertOK), nil
+
+}
+
+/*
+GetSysteminfoVolumes gets system volume info total free size
+
+This endpoint is for retrieving system volume info that only provides for admin user.
+*/
+func (a *Client) GetSysteminfoVolumes(ctx context.Context, params *GetSysteminfoVolumesParams) (*GetSysteminfoVolumesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetSysteminfoVolumes",
+		Method:             "GET",
+		PathPattern:        "/systeminfo/volumes",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetSysteminfoVolumesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSysteminfoVolumesOK), nil
+
+}
+
+/*
+GetUsergroups gets all user groups information
+
+Get all user groups information
+*/
+func (a *Client) GetUsergroups(ctx context.Context, params *GetUsergroupsParams) (*GetUsergroupsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetUsergroups",
+		Method:             "GET",
+		PathPattern:        "/usergroups",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetUsergroupsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUsergroupsOK), nil
+
+}
+
+/*
+GetUsergroupsGroupID gets user group information
+
+Get user group information
+*/
+func (a *Client) GetUsergroupsGroupID(ctx context.Context, params *GetUsergroupsGroupIDParams) (*GetUsergroupsGroupIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetUsergroupsGroupID",
+		Method:             "GET",
+		PathPattern:        "/usergroups/{group_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetUsergroupsGroupIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUsergroupsGroupIDOK), nil
+
+}
+
+/*
+GetUsers gets registered users of harbor
+
+This endpoint is for user to search registered users, support for filtering results with username.Notice, by now this operation is only for administrator.
+*/
+func (a *Client) GetUsers(ctx context.Context, params *GetUsersParams) (*GetUsersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetUsers",
+		Method:             "GET",
+		PathPattern:        "/users",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetUsersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUsersOK), nil
+
+}
+
+/*
+GetUsersCurrent gets current user info
+
+This endpoint is to get the current user information.
+*/
+func (a *Client) GetUsersCurrent(ctx context.Context, params *GetUsersCurrentParams) (*GetUsersCurrentOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetUsersCurrent",
+		Method:             "GET",
+		PathPattern:        "/users/current",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetUsersCurrentReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUsersCurrentOK), nil
+
+}
+
+/*
+GetUsersCurrentPermissions gets current user permissions
+
+This endpoint is to get the current user permissions.
+*/
+func (a *Client) GetUsersCurrentPermissions(ctx context.Context, params *GetUsersCurrentPermissionsParams) (*GetUsersCurrentPermissionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetUsersCurrentPermissions",
+		Method:             "GET",
+		PathPattern:        "/users/current/permissions",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetUsersCurrentPermissionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUsersCurrentPermissionsOK), nil
+
+}
+
+/*
+GetUsersSearch searches users by username
+
+This endpoint is to search the users by username.
+*/
+func (a *Client) GetUsersSearch(ctx context.Context, params *GetUsersSearchParams) (*GetUsersSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetUsersSearch",
+		Method:             "GET",
+		PathPattern:        "/users/search",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetUsersSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUsersSearchOK), nil
+
+}
+
+/*
+GetUsersUserID gets a user s profile
+
+Get user's profile with user id.
+*/
+func (a *Client) GetUsersUserID(ctx context.Context, params *GetUsersUserIDParams) (*GetUsersUserIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetUsersUserID",
+		Method:             "GET",
+		PathPattern:        "/users/{user_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetUsersUserIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUsersUserIDOK), nil
+
+}
+
+/*
+PatchRetentionsIDExecutionsEid stops a retention job
+
+Stop a Retention job, only support "stop" action now.
+*/
+func (a *Client) PatchRetentionsIDExecutionsEid(ctx context.Context, params *PatchRetentionsIDExecutionsEidParams) (*PatchRetentionsIDExecutionsEidOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PatchRetentionsIDExecutionsEid",
+		Method:             "PATCH",
+		PathPattern:        "/retentions/{id}/executions/{eid}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PatchRetentionsIDExecutionsEidReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchRetentionsIDExecutionsEidOK), nil
 
 }
 
@@ -163,5 +2744,1118 @@ func (a *Client) PostEmailPing(ctx context.Context, params *PostEmailPingParams)
 		return nil, err
 	}
 	return result.(*PostEmailPingOK), nil
+
+}
+
+/*
+PostLabels posts creates a label
+
+This endpoint let user creates a label.
+*/
+func (a *Client) PostLabels(ctx context.Context, params *PostLabelsParams) (*PostLabelsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostLabels",
+		Method:             "POST",
+		PathPattern:        "/labels",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostLabelsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostLabelsCreated), nil
+
+}
+
+/*
+PostLdapPing pings available ldap service
+
+This endpoint ping the available ldap service for test related configuration parameters.
+*/
+func (a *Client) PostLdapPing(ctx context.Context, params *PostLdapPingParams) (*PostLdapPingOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostLdapPing",
+		Method:             "POST",
+		PathPattern:        "/ldap/ping",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostLdapPingReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostLdapPingOK), nil
+
+}
+
+/*
+PostLdapUsersImport imports selected available ldap users
+
+This endpoint adds the selected available ldap users to harbor based on related configuration parameters from the system. System will try to guess the user email address and realname, add to harbor user information.
+If have errors when import user, will return the list of importing failed uid and the failed reason.
+*/
+func (a *Client) PostLdapUsersImport(ctx context.Context, params *PostLdapUsersImportParams) (*PostLdapUsersImportOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostLdapUsersImport",
+		Method:             "POST",
+		PathPattern:        "/ldap/users/import",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostLdapUsersImportReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostLdapUsersImportOK), nil
+
+}
+
+/*
+PostProjectsProjectIDImmutabletagrules adds an immutable tag rule to current project
+
+This endpoint add an immutable tag rule to the project
+*/
+func (a *Client) PostProjectsProjectIDImmutabletagrules(ctx context.Context, params *PostProjectsProjectIDImmutabletagrulesParams) (*PostProjectsProjectIDImmutabletagrulesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostProjectsProjectIDImmutabletagrules",
+		Method:             "POST",
+		PathPattern:        "/projects/{project_id}/immutabletagrules",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostProjectsProjectIDImmutabletagrulesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostProjectsProjectIDImmutabletagrulesOK), nil
+
+}
+
+/*
+PostProjectsProjectIDMembers creates project member
+
+Create project member relationship, the member can be one of the user_member and group_member,  The user_member need to specify user_id or username. If the user already exist in harbor DB, specify the user_id,  If does not exist in harbor DB, it will SearchAndOnBoard the user. The group_member need to specify id or ldap_group_dn. If the group already exist in harbor DB. specify the user group's id,  If does not exist, it will SearchAndOnBoard the group.
+*/
+func (a *Client) PostProjectsProjectIDMembers(ctx context.Context, params *PostProjectsProjectIDMembersParams) (*PostProjectsProjectIDMembersCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostProjectsProjectIDMembers",
+		Method:             "POST",
+		PathPattern:        "/projects/{project_id}/members",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostProjectsProjectIDMembersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostProjectsProjectIDMembersCreated), nil
+
+}
+
+/*
+PostProjectsProjectIDMetadatas adds metadata for the project
+
+This endpoint is aimed to add metadata of a project.
+*/
+func (a *Client) PostProjectsProjectIDMetadatas(ctx context.Context, params *PostProjectsProjectIDMetadatasParams) (*PostProjectsProjectIDMetadatasOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostProjectsProjectIDMetadatas",
+		Method:             "POST",
+		PathPattern:        "/projects/{project_id}/metadatas",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostProjectsProjectIDMetadatasReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostProjectsProjectIDMetadatasOK), nil
+
+}
+
+/*
+PostProjectsProjectIDRobots creates a robot account for project
+
+Create a robot account for project
+*/
+func (a *Client) PostProjectsProjectIDRobots(ctx context.Context, params *PostProjectsProjectIDRobotsParams) (*PostProjectsProjectIDRobotsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostProjectsProjectIDRobots",
+		Method:             "POST",
+		PathPattern:        "/projects/{project_id}/robots",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostProjectsProjectIDRobotsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostProjectsProjectIDRobotsCreated), nil
+
+}
+
+/*
+PostProjectsProjectIDWebhookPolicies creates project webhook policy
+
+This endpoint create a webhook policy if the project does not have one.
+*/
+func (a *Client) PostProjectsProjectIDWebhookPolicies(ctx context.Context, params *PostProjectsProjectIDWebhookPoliciesParams) (*PostProjectsProjectIDWebhookPoliciesCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostProjectsProjectIDWebhookPolicies",
+		Method:             "POST",
+		PathPattern:        "/projects/{project_id}/webhook/policies",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostProjectsProjectIDWebhookPoliciesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostProjectsProjectIDWebhookPoliciesCreated), nil
+
+}
+
+/*
+PostProjectsProjectIDWebhookPoliciesTest tests project webhook connection
+
+This endpoint tests webhook connection of a project.
+*/
+func (a *Client) PostProjectsProjectIDWebhookPoliciesTest(ctx context.Context, params *PostProjectsProjectIDWebhookPoliciesTestParams) (*PostProjectsProjectIDWebhookPoliciesTestOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostProjectsProjectIDWebhookPoliciesTest",
+		Method:             "POST",
+		PathPattern:        "/projects/{project_id}/webhook/policies/test",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostProjectsProjectIDWebhookPoliciesTestReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostProjectsProjectIDWebhookPoliciesTestOK), nil
+
+}
+
+/*
+PostRegistries creates a new registry
+
+This endpoint is for user to create a new registry.
+*/
+func (a *Client) PostRegistries(ctx context.Context, params *PostRegistriesParams) (*PostRegistriesCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostRegistries",
+		Method:             "POST",
+		PathPattern:        "/registries",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostRegistriesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRegistriesCreated), nil
+
+}
+
+/*
+PostRegistriesPing pings status of a registry
+
+This endpoint checks status of a registry, the registry can be given by ID or URL (together with credential)
+*/
+func (a *Client) PostRegistriesPing(ctx context.Context, params *PostRegistriesPingParams) (*PostRegistriesPingOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostRegistriesPing",
+		Method:             "POST",
+		PathPattern:        "/registries/ping",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostRegistriesPingReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRegistriesPingOK), nil
+
+}
+
+/*
+PostReplicationExecutions starts one execution of the replication
+
+This endpoint is for user to start one execution of the replication.
+*/
+func (a *Client) PostReplicationExecutions(ctx context.Context, params *PostReplicationExecutionsParams) (*PostReplicationExecutionsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostReplicationExecutions",
+		Method:             "POST",
+		PathPattern:        "/replication/executions",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostReplicationExecutionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostReplicationExecutionsCreated), nil
+
+}
+
+/*
+PostReplicationPolicies creates a replication policy
+
+This endpoint let user create a replication policy
+*/
+func (a *Client) PostReplicationPolicies(ctx context.Context, params *PostReplicationPoliciesParams) (*PostReplicationPoliciesCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostReplicationPolicies",
+		Method:             "POST",
+		PathPattern:        "/replication/policies",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostReplicationPoliciesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostReplicationPoliciesCreated), nil
+
+}
+
+/*
+PostRetentions creates retention policy
+
+Create Retention Policy, you can reference metadatas API for the policy model.
+You can check project metadatas to find whether a retention policy is already binded.
+This method should only be called when no retention policy binded to project yet.
+*/
+func (a *Client) PostRetentions(ctx context.Context, params *PostRetentionsParams) (*PostRetentionsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostRetentions",
+		Method:             "POST",
+		PathPattern:        "/retentions",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostRetentionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRetentionsCreated), nil
+
+}
+
+/*
+PostRetentionsIDExecutions triggers a retention job
+
+Trigger a Retention job, if dry_run is True, nothing would be deleted actually.
+*/
+func (a *Client) PostRetentionsIDExecutions(ctx context.Context, params *PostRetentionsIDExecutionsParams) (*PostRetentionsIDExecutionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostRetentionsIDExecutions",
+		Method:             "POST",
+		PathPattern:        "/retentions/{id}/executions",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostRetentionsIDExecutionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRetentionsIDExecutionsOK), nil
+
+}
+
+/*
+PostScannersPing tests scanner registration settings
+
+Pings scanner adapter to test endpoint URL and authorization settings.
+*/
+func (a *Client) PostScannersPing(ctx context.Context, params *PostScannersPingParams) (*PostScannersPingOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostScannersPing",
+		Method:             "POST",
+		PathPattern:        "/scanners/ping",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostScannersPingReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostScannersPingOK), nil
+
+}
+
+/*
+PostSystemGCSchedule creates a gc schedule
+
+This endpoint is for update gc schedule.
+*/
+func (a *Client) PostSystemGCSchedule(ctx context.Context, params *PostSystemGCScheduleParams) (*PostSystemGCScheduleOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostSystemGCSchedule",
+		Method:             "POST",
+		PathPattern:        "/system/gc/schedule",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostSystemGCScheduleReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostSystemGCScheduleOK), nil
+
+}
+
+/*
+PostSystemOIDCPing tests the OIDC endpoint
+
+Test the OIDC endpoint, the setting of the endpoint is provided in the request.  This API can only be called by system admin.
+*/
+func (a *Client) PostSystemOIDCPing(ctx context.Context, params *PostSystemOIDCPingParams) (*PostSystemOIDCPingOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostSystemOIDCPing",
+		Method:             "POST",
+		PathPattern:        "/system/oidc/ping",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostSystemOIDCPingReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostSystemOIDCPingOK), nil
+
+}
+
+/*
+PostSystemScanAllSchedule creates a schedule or a manual trigger for the scan all job
+
+This endpoint is for creating a schedule or a manual trigger for the scan all job, which scans all of images in Harbor.
+*/
+func (a *Client) PostSystemScanAllSchedule(ctx context.Context, params *PostSystemScanAllScheduleParams) (*PostSystemScanAllScheduleOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostSystemScanAllSchedule",
+		Method:             "POST",
+		PathPattern:        "/system/scanAll/schedule",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostSystemScanAllScheduleReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostSystemScanAllScheduleOK), nil
+
+}
+
+/*
+PostUsergroups creates user group
+
+Create user group information
+*/
+func (a *Client) PostUsergroups(ctx context.Context, params *PostUsergroupsParams) (*PostUsergroupsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostUsergroups",
+		Method:             "POST",
+		PathPattern:        "/usergroups",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostUsergroupsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostUsergroupsCreated), nil
+
+}
+
+/*
+PostUsers creates a new user account
+
+This endpoint is to create a user if the user does not already exist.
+*/
+func (a *Client) PostUsers(ctx context.Context, params *PostUsersParams) (*PostUsersCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostUsers",
+		Method:             "POST",
+		PathPattern:        "/users",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PostUsersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostUsersCreated), nil
+
+}
+
+/*
+PutConfigurations modifies system configurations
+
+This endpoint is for modifying system configurations that only provides for admin user.
+*/
+func (a *Client) PutConfigurations(ctx context.Context, params *PutConfigurationsParams) (*PutConfigurationsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutConfigurations",
+		Method:             "PUT",
+		PathPattern:        "/configurations",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutConfigurationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutConfigurationsOK), nil
+
+}
+
+/*
+PutLabelsID updates the label properties
+
+This endpoint let user update label properties.
+*/
+func (a *Client) PutLabelsID(ctx context.Context, params *PutLabelsIDParams) (*PutLabelsIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutLabelsID",
+		Method:             "PUT",
+		PathPattern:        "/labels/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutLabelsIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutLabelsIDOK), nil
+
+}
+
+/*
+PutProjectsProjectIDImmutabletagrulesID updates the immutable tag rule or enable or disable the rule
+*/
+func (a *Client) PutProjectsProjectIDImmutabletagrulesID(ctx context.Context, params *PutProjectsProjectIDImmutabletagrulesIDParams) (*PutProjectsProjectIDImmutabletagrulesIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutProjectsProjectIDImmutabletagrulesID",
+		Method:             "PUT",
+		PathPattern:        "/projects/{project_id}/immutabletagrules/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutProjectsProjectIDImmutabletagrulesIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutProjectsProjectIDImmutabletagrulesIDOK), nil
+
+}
+
+/*
+PutProjectsProjectIDMembersMid updates project member
+
+Update project member relationship
+*/
+func (a *Client) PutProjectsProjectIDMembersMid(ctx context.Context, params *PutProjectsProjectIDMembersMidParams) (*PutProjectsProjectIDMembersMidOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutProjectsProjectIDMembersMid",
+		Method:             "PUT",
+		PathPattern:        "/projects/{project_id}/members/{mid}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutProjectsProjectIDMembersMidReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutProjectsProjectIDMembersMidOK), nil
+
+}
+
+/*
+PutProjectsProjectIDMetadatasMetaName updates metadata of a project
+
+This endpoint is aimed to update the metadata of a project.
+*/
+func (a *Client) PutProjectsProjectIDMetadatasMetaName(ctx context.Context, params *PutProjectsProjectIDMetadatasMetaNameParams) (*PutProjectsProjectIDMetadatasMetaNameOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutProjectsProjectIDMetadatasMetaName",
+		Method:             "PUT",
+		PathPattern:        "/projects/{project_id}/metadatas/{meta_name}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutProjectsProjectIDMetadatasMetaNameReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutProjectsProjectIDMetadatasMetaNameOK), nil
+
+}
+
+/*
+PutProjectsProjectIDRobotsRobotID updates status of robot account
+
+Used to disable/enable a specified robot account.
+*/
+func (a *Client) PutProjectsProjectIDRobotsRobotID(ctx context.Context, params *PutProjectsProjectIDRobotsRobotIDParams) (*PutProjectsProjectIDRobotsRobotIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutProjectsProjectIDRobotsRobotID",
+		Method:             "PUT",
+		PathPattern:        "/projects/{project_id}/robots/{robot_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutProjectsProjectIDRobotsRobotIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutProjectsProjectIDRobotsRobotIDOK), nil
+
+}
+
+/*
+PutProjectsProjectIDWebhookPoliciesPolicyID updates webhook policy of a project
+
+This endpoint is aimed to update the webhook policy of a project.
+*/
+func (a *Client) PutProjectsProjectIDWebhookPoliciesPolicyID(ctx context.Context, params *PutProjectsProjectIDWebhookPoliciesPolicyIDParams) (*PutProjectsProjectIDWebhookPoliciesPolicyIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutProjectsProjectIDWebhookPoliciesPolicyID",
+		Method:             "PUT",
+		PathPattern:        "/projects/{project_id}/webhook/policies/{policy_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutProjectsProjectIDWebhookPoliciesPolicyIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutProjectsProjectIDWebhookPoliciesPolicyIDOK), nil
+
+}
+
+/*
+PutQuotasID updates the specified quota
+
+Update hard limits of the specified quota
+*/
+func (a *Client) PutQuotasID(ctx context.Context, params *PutQuotasIDParams) (*PutQuotasIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutQuotasID",
+		Method:             "PUT",
+		PathPattern:        "/quotas/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutQuotasIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutQuotasIDOK), nil
+
+}
+
+/*
+PutRegistriesID updates a given registry
+
+This endpoint is for update a given registry.
+*/
+func (a *Client) PutRegistriesID(ctx context.Context, params *PutRegistriesIDParams) (*PutRegistriesIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutRegistriesID",
+		Method:             "PUT",
+		PathPattern:        "/registries/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutRegistriesIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutRegistriesIDOK), nil
+
+}
+
+/*
+PutReplicationExecutionsID stops the execution of the replication
+
+This endpoint is for user to stop one execution of the replication.
+*/
+func (a *Client) PutReplicationExecutionsID(ctx context.Context, params *PutReplicationExecutionsIDParams) (*PutReplicationExecutionsIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutReplicationExecutionsID",
+		Method:             "PUT",
+		PathPattern:        "/replication/executions/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutReplicationExecutionsIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutReplicationExecutionsIDOK), nil
+
+}
+
+/*
+PutReplicationPoliciesID updates the replication policy
+
+This endpoint let user update policy.
+*/
+func (a *Client) PutReplicationPoliciesID(ctx context.Context, params *PutReplicationPoliciesIDParams) (*PutReplicationPoliciesIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutReplicationPoliciesID",
+		Method:             "PUT",
+		PathPattern:        "/replication/policies/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutReplicationPoliciesIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutReplicationPoliciesIDOK), nil
+
+}
+
+/*
+PutRetentionsID updates retention policy
+
+Update Retention Policy, you can reference metadatas API for the policy model.
+You can check project metadatas to find whether a retention policy is already binded.
+This method should only be called when retention policy has already binded to project.
+*/
+func (a *Client) PutRetentionsID(ctx context.Context, params *PutRetentionsIDParams) (*PutRetentionsIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutRetentionsID",
+		Method:             "PUT",
+		PathPattern:        "/retentions/{id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutRetentionsIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutRetentionsIDOK), nil
+
+}
+
+/*
+PutSystemCVEAllowlist updates the system level allowlist of CVE
+
+This API overwrites the system level allowlist of CVE with the list in request body.  Only system Admin has permission to call this API.
+*/
+func (a *Client) PutSystemCVEAllowlist(ctx context.Context, params *PutSystemCVEAllowlistParams) (*PutSystemCVEAllowlistOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutSystemCVEAllowlist",
+		Method:             "PUT",
+		PathPattern:        "/system/CVEAllowlist",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutSystemCVEAllowlistReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutSystemCVEAllowlistOK), nil
+
+}
+
+/*
+PutSystemGCSchedule updates gc s schedule
+
+This endpoint is for update gc schedule.
+*/
+func (a *Client) PutSystemGCSchedule(ctx context.Context, params *PutSystemGCScheduleParams) (*PutSystemGCScheduleOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutSystemGCSchedule",
+		Method:             "PUT",
+		PathPattern:        "/system/gc/schedule",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutSystemGCScheduleReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutSystemGCScheduleOK), nil
+
+}
+
+/*
+PutSystemScanAllSchedule updates scan all s schedule
+
+This endpoint is for updating the schedule of scan all job, which scans all of images in Harbor.
+*/
+func (a *Client) PutSystemScanAllSchedule(ctx context.Context, params *PutSystemScanAllScheduleParams) (*PutSystemScanAllScheduleOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutSystemScanAllSchedule",
+		Method:             "PUT",
+		PathPattern:        "/system/scanAll/schedule",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutSystemScanAllScheduleReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutSystemScanAllScheduleOK), nil
+
+}
+
+/*
+PutUsergroupsGroupID updates group information
+
+Update user group information
+*/
+func (a *Client) PutUsergroupsGroupID(ctx context.Context, params *PutUsergroupsGroupIDParams) (*PutUsergroupsGroupIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutUsergroupsGroupID",
+		Method:             "PUT",
+		PathPattern:        "/usergroups/{group_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutUsergroupsGroupIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutUsergroupsGroupIDOK), nil
+
+}
+
+/*
+PutUsersUserID updates a registered user to change his profile
+
+This endpoint let a registered user change his profile.
+*/
+func (a *Client) PutUsersUserID(ctx context.Context, params *PutUsersUserIDParams) (*PutUsersUserIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutUsersUserID",
+		Method:             "PUT",
+		PathPattern:        "/users/{user_id}",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutUsersUserIDReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutUsersUserIDOK), nil
+
+}
+
+/*
+PutUsersUserIDCliSecret sets c l i secret for a user
+
+This endpoint let user generate a new CLI secret for himself.  This API only works when auth mode is set to 'OIDC'.
+Once this API returns with successful status, the old secret will be invalid, as there will be only one CLI secret
+for a user.
+*/
+func (a *Client) PutUsersUserIDCliSecret(ctx context.Context, params *PutUsersUserIDCliSecretParams) (*PutUsersUserIDCliSecretOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutUsersUserIDCliSecret",
+		Method:             "PUT",
+		PathPattern:        "/users/{user_id}/cli_secret",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutUsersUserIDCliSecretReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutUsersUserIDCliSecretOK), nil
+
+}
+
+/*
+PutUsersUserIDPassword changes the password on a user that already exists
+
+This endpoint is for user to update password. Users with the admin role can change any user's password. Guest users can change only their own password.
+*/
+func (a *Client) PutUsersUserIDPassword(ctx context.Context, params *PutUsersUserIDPasswordParams) (*PutUsersUserIDPasswordOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutUsersUserIDPassword",
+		Method:             "PUT",
+		PathPattern:        "/users/{user_id}/password",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutUsersUserIDPasswordReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutUsersUserIDPasswordOK), nil
+
+}
+
+/*
+PutUsersUserIDSysadmin updates a registered user to change to be an administrator of harbor
+
+This endpoint let a registered user change to be an administrator
+of Harbor.
+*/
+func (a *Client) PutUsersUserIDSysadmin(ctx context.Context, params *PutUsersUserIDSysadminParams) (*PutUsersUserIDSysadminOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PutUsersUserIDSysadmin",
+		Method:             "PUT",
+		PathPattern:        "/users/{user_id}/sysadmin",
+		ProducesMediaTypes: []string{"application/json", "text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &PutUsersUserIDSysadminReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutUsersUserIDSysadminOK), nil
 
 }

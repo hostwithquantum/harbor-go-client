@@ -62,23 +62,19 @@ GetProjectDeletableParams contains all the parameters to send to the API endpoin
 */
 type GetProjectDeletableParams struct {
 
-	/* XIsResourceName.
-
-	   The flag to indicate whether the parameter which supports both name and id in the path is the name of the resource. When the X-Is-Resource-Name is false and the parameter can be converted to an integer, the parameter will be as an id, otherwise, it will be as a name.
-	*/
-	XIsResourceName *bool
-
 	/* XRequestID.
 
 	   An unique ID for the request
 	*/
 	XRequestID *string
 
-	/* ProjectNameOrID.
+	/* ProjectID.
 
-	   The name or id of the project
+	   The ID of the project
+
+	   Format: int64
 	*/
-	ProjectNameOrID string
+	ProjectID int64
 
 	timeout    time.Duration
 	Context    context.Context
@@ -97,18 +93,7 @@ func (o *GetProjectDeletableParams) WithDefaults() *GetProjectDeletableParams {
 //
 // All values with no default are reset to their zero value.
 func (o *GetProjectDeletableParams) SetDefaults() {
-	var (
-		xIsResourceNameDefault = bool(false)
-	)
-
-	val := GetProjectDeletableParams{
-		XIsResourceName: &xIsResourceNameDefault,
-	}
-
-	val.timeout = o.timeout
-	val.Context = o.Context
-	val.HTTPClient = o.HTTPClient
-	*o = val
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get project deletable params
@@ -144,17 +129,6 @@ func (o *GetProjectDeletableParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXIsResourceName adds the xIsResourceName to the get project deletable params
-func (o *GetProjectDeletableParams) WithXIsResourceName(xIsResourceName *bool) *GetProjectDeletableParams {
-	o.SetXIsResourceName(xIsResourceName)
-	return o
-}
-
-// SetXIsResourceName adds the xIsResourceName to the get project deletable params
-func (o *GetProjectDeletableParams) SetXIsResourceName(xIsResourceName *bool) {
-	o.XIsResourceName = xIsResourceName
-}
-
 // WithXRequestID adds the xRequestID to the get project deletable params
 func (o *GetProjectDeletableParams) WithXRequestID(xRequestID *string) *GetProjectDeletableParams {
 	o.SetXRequestID(xRequestID)
@@ -166,15 +140,15 @@ func (o *GetProjectDeletableParams) SetXRequestID(xRequestID *string) {
 	o.XRequestID = xRequestID
 }
 
-// WithProjectNameOrID adds the projectNameOrID to the get project deletable params
-func (o *GetProjectDeletableParams) WithProjectNameOrID(projectNameOrID string) *GetProjectDeletableParams {
-	o.SetProjectNameOrID(projectNameOrID)
+// WithProjectID adds the projectID to the get project deletable params
+func (o *GetProjectDeletableParams) WithProjectID(projectID int64) *GetProjectDeletableParams {
+	o.SetProjectID(projectID)
 	return o
 }
 
-// SetProjectNameOrID adds the projectNameOrId to the get project deletable params
-func (o *GetProjectDeletableParams) SetProjectNameOrID(projectNameOrID string) {
-	o.ProjectNameOrID = projectNameOrID
+// SetProjectID adds the projectId to the get project deletable params
+func (o *GetProjectDeletableParams) SetProjectID(projectID int64) {
+	o.ProjectID = projectID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -185,14 +159,6 @@ func (o *GetProjectDeletableParams) WriteToRequest(r runtime.ClientRequest, reg 
 	}
 	var res []error
 
-	if o.XIsResourceName != nil {
-
-		// header param X-Is-Resource-Name
-		if err := r.SetHeaderParam("X-Is-Resource-Name", swag.FormatBool(*o.XIsResourceName)); err != nil {
-			return err
-		}
-	}
-
 	if o.XRequestID != nil {
 
 		// header param X-Request-Id
@@ -201,8 +167,8 @@ func (o *GetProjectDeletableParams) WriteToRequest(r runtime.ClientRequest, reg 
 		}
 	}
 
-	// path param project_name_or_id
-	if err := r.SetPathParam("project_name_or_id", o.ProjectNameOrID); err != nil {
+	// path param project_id
+	if err := r.SetPathParam("project_id", swag.FormatInt64(o.ProjectID)); err != nil {
 		return err
 	}
 

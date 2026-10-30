@@ -64,12 +64,6 @@ UpdateProjectParams contains all the parameters to send to the API endpoint
 */
 type UpdateProjectParams struct {
 
-	/* XIsResourceName.
-
-	   The flag to indicate whether the parameter which supports both name and id in the path is the name of the resource. When the X-Is-Resource-Name is false and the parameter can be converted to an integer, the parameter will be as an id, otherwise, it will be as a name.
-	*/
-	XIsResourceName *bool
-
 	/* XRequestID.
 
 	   An unique ID for the request
@@ -82,11 +76,13 @@ type UpdateProjectParams struct {
 	*/
 	Project *models.ProjectReq
 
-	/* ProjectNameOrID.
+	/* ProjectID.
 
-	   The name or id of the project
+	   The ID of the project
+
+	   Format: int64
 	*/
-	ProjectNameOrID string
+	ProjectID int64
 
 	timeout    time.Duration
 	Context    context.Context
@@ -105,18 +101,7 @@ func (o *UpdateProjectParams) WithDefaults() *UpdateProjectParams {
 //
 // All values with no default are reset to their zero value.
 func (o *UpdateProjectParams) SetDefaults() {
-	var (
-		xIsResourceNameDefault = bool(false)
-	)
-
-	val := UpdateProjectParams{
-		XIsResourceName: &xIsResourceNameDefault,
-	}
-
-	val.timeout = o.timeout
-	val.Context = o.Context
-	val.HTTPClient = o.HTTPClient
-	*o = val
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the update project params
@@ -152,17 +137,6 @@ func (o *UpdateProjectParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithXIsResourceName adds the xIsResourceName to the update project params
-func (o *UpdateProjectParams) WithXIsResourceName(xIsResourceName *bool) *UpdateProjectParams {
-	o.SetXIsResourceName(xIsResourceName)
-	return o
-}
-
-// SetXIsResourceName adds the xIsResourceName to the update project params
-func (o *UpdateProjectParams) SetXIsResourceName(xIsResourceName *bool) {
-	o.XIsResourceName = xIsResourceName
-}
-
 // WithXRequestID adds the xRequestID to the update project params
 func (o *UpdateProjectParams) WithXRequestID(xRequestID *string) *UpdateProjectParams {
 	o.SetXRequestID(xRequestID)
@@ -185,15 +159,15 @@ func (o *UpdateProjectParams) SetProject(project *models.ProjectReq) {
 	o.Project = project
 }
 
-// WithProjectNameOrID adds the projectNameOrID to the update project params
-func (o *UpdateProjectParams) WithProjectNameOrID(projectNameOrID string) *UpdateProjectParams {
-	o.SetProjectNameOrID(projectNameOrID)
+// WithProjectID adds the projectID to the update project params
+func (o *UpdateProjectParams) WithProjectID(projectID int64) *UpdateProjectParams {
+	o.SetProjectID(projectID)
 	return o
 }
 
-// SetProjectNameOrID adds the projectNameOrId to the update project params
-func (o *UpdateProjectParams) SetProjectNameOrID(projectNameOrID string) {
-	o.ProjectNameOrID = projectNameOrID
+// SetProjectID adds the projectId to the update project params
+func (o *UpdateProjectParams) SetProjectID(projectID int64) {
+	o.ProjectID = projectID
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -203,14 +177,6 @@ func (o *UpdateProjectParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
-	if o.XIsResourceName != nil {
-
-		// header param X-Is-Resource-Name
-		if err := r.SetHeaderParam("X-Is-Resource-Name", swag.FormatBool(*o.XIsResourceName)); err != nil {
-			return err
-		}
-	}
 
 	if o.XRequestID != nil {
 
@@ -225,8 +191,8 @@ func (o *UpdateProjectParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		}
 	}
 
-	// path param project_name_or_id
-	if err := r.SetPathParam("project_name_or_id", o.ProjectNameOrID); err != nil {
+	// path param project_id
+	if err := r.SetPathParam("project_id", swag.FormatInt64(o.ProjectID)); err != nil {
 		return err
 	}
 

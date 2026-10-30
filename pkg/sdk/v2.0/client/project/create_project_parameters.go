@@ -14,7 +14,6 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
-	"github.com/go-openapi/swag"
 
 	"github.com/goharbor/go-client/pkg/sdk/v2.0/models"
 )
@@ -70,12 +69,6 @@ type CreateProjectParams struct {
 	*/
 	XRequestID *string
 
-	/* XResourceNameInLocation.
-
-	   The flag to indicate whether to return the name of the resource in Location. When X-Resource-Name-In-Location is true, the Location will return the name of the resource.
-	*/
-	XResourceNameInLocation *bool
-
 	/* Project.
 
 	   New created project.
@@ -99,18 +92,7 @@ func (o *CreateProjectParams) WithDefaults() *CreateProjectParams {
 //
 // All values with no default are reset to their zero value.
 func (o *CreateProjectParams) SetDefaults() {
-	var (
-		xResourceNameInLocationDefault = bool(false)
-	)
-
-	val := CreateProjectParams{
-		XResourceNameInLocation: &xResourceNameInLocationDefault,
-	}
-
-	val.timeout = o.timeout
-	val.Context = o.Context
-	val.HTTPClient = o.HTTPClient
-	*o = val
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the create project params
@@ -157,17 +139,6 @@ func (o *CreateProjectParams) SetXRequestID(xRequestID *string) {
 	o.XRequestID = xRequestID
 }
 
-// WithXResourceNameInLocation adds the xResourceNameInLocation to the create project params
-func (o *CreateProjectParams) WithXResourceNameInLocation(xResourceNameInLocation *bool) *CreateProjectParams {
-	o.SetXResourceNameInLocation(xResourceNameInLocation)
-	return o
-}
-
-// SetXResourceNameInLocation adds the xResourceNameInLocation to the create project params
-func (o *CreateProjectParams) SetXResourceNameInLocation(xResourceNameInLocation *bool) {
-	o.XResourceNameInLocation = xResourceNameInLocation
-}
-
 // WithProject adds the project to the create project params
 func (o *CreateProjectParams) WithProject(project *models.ProjectReq) *CreateProjectParams {
 	o.SetProject(project)
@@ -191,14 +162,6 @@ func (o *CreateProjectParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 
 		// header param X-Request-Id
 		if err := r.SetHeaderParam("X-Request-Id", *o.XRequestID); err != nil {
-			return err
-		}
-	}
-
-	if o.XResourceNameInLocation != nil {
-
-		// header param X-Resource-Name-In-Location
-		if err := r.SetHeaderParam("X-Resource-Name-In-Location", swag.FormatBool(*o.XResourceNameInLocation)); err != nil {
 			return err
 		}
 	}

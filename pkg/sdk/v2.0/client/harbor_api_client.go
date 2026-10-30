@@ -15,39 +15,11 @@ import (
 
 	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/artifact"
 	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/auditlog"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/configure"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/gc"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/health"
 	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/icon"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/immutable"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/label"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/ldap"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/member"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/oidc"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/ping"
 	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/preheat"
 	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/project"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/project_metadata"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/purge"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/quota"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/registry"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/replication"
 	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/repository"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/retention"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/robot"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/robotv1"
 	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/scan"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/scan_all"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/scan_data_export"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/scanner"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/search"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/statistic"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/system_cve_allowlist"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/systeminfo"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/user"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/usergroup"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/webhook"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/webhookjob"
 )
 
 const (
@@ -94,78 +66,22 @@ func New(c Config) *HarborAPI {
 	cli.Transport = transport
 	cli.Artifact = artifact.New(transport, strfmt.Default, c.AuthInfo)
 	cli.Auditlog = auditlog.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Configure = configure.New(transport, strfmt.Default, c.AuthInfo)
-	cli.GC = gc.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Health = health.New(transport, strfmt.Default, c.AuthInfo)
 	cli.Icon = icon.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Immutable = immutable.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Label = label.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Ldap = ldap.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Member = member.New(transport, strfmt.Default, c.AuthInfo)
-	cli.OIDC = oidc.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Ping = ping.New(transport, strfmt.Default, c.AuthInfo)
 	cli.Preheat = preheat.New(transport, strfmt.Default, c.AuthInfo)
 	cli.Project = project.New(transport, strfmt.Default, c.AuthInfo)
-	cli.ProjectMetadata = project_metadata.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Purge = purge.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Quota = quota.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Registry = registry.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Replication = replication.New(transport, strfmt.Default, c.AuthInfo)
 	cli.Repository = repository.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Retention = retention.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Robot = robot.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Robotv1 = robotv1.New(transport, strfmt.Default, c.AuthInfo)
 	cli.Scan = scan.New(transport, strfmt.Default, c.AuthInfo)
-	cli.ScanAll = scan_all.New(transport, strfmt.Default, c.AuthInfo)
-	cli.ScanDataExport = scan_data_export.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Scanner = scanner.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Search = search.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Statistic = statistic.New(transport, strfmt.Default, c.AuthInfo)
-	cli.SystemCVEAllowlist = system_cve_allowlist.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Systeminfo = systeminfo.New(transport, strfmt.Default, c.AuthInfo)
-	cli.User = user.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Usergroup = usergroup.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Webhook = webhook.New(transport, strfmt.Default, c.AuthInfo)
-	cli.Webhookjob = webhookjob.New(transport, strfmt.Default, c.AuthInfo)
 	return cli
 }
 
 // HarborAPI is a client for harbor API
 type HarborAPI struct {
-	Artifact           *artifact.Client
-	Auditlog           *auditlog.Client
-	Configure          *configure.Client
-	GC                 *gc.Client
-	Health             *health.Client
-	Icon               *icon.Client
-	Immutable          *immutable.Client
-	Label              *label.Client
-	Ldap               *ldap.Client
-	Member             *member.Client
-	OIDC               *oidc.Client
-	Ping               *ping.Client
-	Preheat            *preheat.Client
-	Project            *project.Client
-	ProjectMetadata    *project_metadata.Client
-	Purge              *purge.Client
-	Quota              *quota.Client
-	Registry           *registry.Client
-	Replication        *replication.Client
-	Repository         *repository.Client
-	Retention          *retention.Client
-	Robot              *robot.Client
-	Robotv1            *robotv1.Client
-	Scan               *scan.Client
-	ScanAll            *scan_all.Client
-	ScanDataExport     *scan_data_export.Client
-	Scanner            *scanner.Client
-	Search             *search.Client
-	Statistic          *statistic.Client
-	SystemCVEAllowlist *system_cve_allowlist.Client
-	Systeminfo         *systeminfo.Client
-	User               *user.Client
-	Usergroup          *usergroup.Client
-	Webhook            *webhook.Client
-	Webhookjob         *webhookjob.Client
-	Transport          runtime.ClientTransport
+	Artifact   *artifact.Client
+	Auditlog   *auditlog.Client
+	Icon       *icon.Client
+	Preheat    *preheat.Client
+	Project    *project.Client
+	Repository *repository.Client
+	Scan       *scan.Client
+	Transport  runtime.ClientTransport
 }

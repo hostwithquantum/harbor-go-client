@@ -62,15 +62,6 @@ ListArtifactsParams contains all the parameters to send to the API endpoint
 */
 type ListArtifactsParams struct {
 
-	/* XAcceptVulnerabilities.
-
-	     A comma-separated lists of MIME types for the scan report or scan summary. The first mime type will be used when the report found for it.
-	Currently the mime type supports 'application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0' and 'application/vnd.security.vulnerability.report; version=1.1'
-
-	     Default: "application/vnd.security.vulnerability.report; version=1.1, application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0"
-	*/
-	XAcceptVulnerabilities *string
-
 	/* XRequestID.
 
 	   An unique ID for the request
@@ -113,21 +104,9 @@ type ListArtifactsParams struct {
 	*/
 	RepositoryName string
 
-	/* Sort.
-
-	   Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with "sort=field1,-field2"
-	*/
-	Sort *string
-
-	/* WithAccessory.
-
-	   Specify whether the accessories are included of the returning artifacts. Only works when setting "with_accessory=true"
-	*/
-	WithAccessory *bool
-
 	/* WithImmutableStatus.
 
-	   Specify whether the immutable status is included inside the tags of the returning artifacts. Only works when setting "with_immutable_status=true"
+	   Specify whether the immutable status is included inside the tags of the returning artifacts. Only works when setting "with_tag=true"
 	*/
 	WithImmutableStatus *bool
 
@@ -175,13 +154,9 @@ func (o *ListArtifactsParams) WithDefaults() *ListArtifactsParams {
 // All values with no default are reset to their zero value.
 func (o *ListArtifactsParams) SetDefaults() {
 	var (
-		xAcceptVulnerabilitiesDefault = string("application/vnd.security.vulnerability.report; version=1.1, application/vnd.scanner.adapter.vuln.report.harbor+json; version=1.0")
-
 		pageDefault = int64(1)
 
 		pageSizeDefault = int64(10)
-
-		withAccessoryDefault = bool(false)
 
 		withImmutableStatusDefault = bool(false)
 
@@ -195,15 +170,13 @@ func (o *ListArtifactsParams) SetDefaults() {
 	)
 
 	val := ListArtifactsParams{
-		XAcceptVulnerabilities: &xAcceptVulnerabilitiesDefault,
-		Page:                   &pageDefault,
-		PageSize:               &pageSizeDefault,
-		WithAccessory:          &withAccessoryDefault,
-		WithImmutableStatus:    &withImmutableStatusDefault,
-		WithLabel:              &withLabelDefault,
-		WithScanOverview:       &withScanOverviewDefault,
-		WithSignature:          &withSignatureDefault,
-		WithTag:                &withTagDefault,
+		Page:                &pageDefault,
+		PageSize:            &pageSizeDefault,
+		WithImmutableStatus: &withImmutableStatusDefault,
+		WithLabel:           &withLabelDefault,
+		WithScanOverview:    &withScanOverviewDefault,
+		WithSignature:       &withSignatureDefault,
+		WithTag:             &withTagDefault,
 	}
 
 	val.timeout = o.timeout
@@ -243,17 +216,6 @@ func (o *ListArtifactsParams) WithHTTPClient(client *http.Client) *ListArtifacts
 // SetHTTPClient adds the HTTPClient to the list artifacts params
 func (o *ListArtifactsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
-}
-
-// WithXAcceptVulnerabilities adds the xAcceptVulnerabilities to the list artifacts params
-func (o *ListArtifactsParams) WithXAcceptVulnerabilities(xAcceptVulnerabilities *string) *ListArtifactsParams {
-	o.SetXAcceptVulnerabilities(xAcceptVulnerabilities)
-	return o
-}
-
-// SetXAcceptVulnerabilities adds the xAcceptVulnerabilities to the list artifacts params
-func (o *ListArtifactsParams) SetXAcceptVulnerabilities(xAcceptVulnerabilities *string) {
-	o.XAcceptVulnerabilities = xAcceptVulnerabilities
 }
 
 // WithXRequestID adds the xRequestID to the list artifacts params
@@ -322,28 +284,6 @@ func (o *ListArtifactsParams) SetRepositoryName(repositoryName string) {
 	o.RepositoryName = repositoryName
 }
 
-// WithSort adds the sort to the list artifacts params
-func (o *ListArtifactsParams) WithSort(sort *string) *ListArtifactsParams {
-	o.SetSort(sort)
-	return o
-}
-
-// SetSort adds the sort to the list artifacts params
-func (o *ListArtifactsParams) SetSort(sort *string) {
-	o.Sort = sort
-}
-
-// WithWithAccessory adds the withAccessory to the list artifacts params
-func (o *ListArtifactsParams) WithWithAccessory(withAccessory *bool) *ListArtifactsParams {
-	o.SetWithAccessory(withAccessory)
-	return o
-}
-
-// SetWithAccessory adds the withAccessory to the list artifacts params
-func (o *ListArtifactsParams) SetWithAccessory(withAccessory *bool) {
-	o.WithAccessory = withAccessory
-}
-
 // WithWithImmutableStatus adds the withImmutableStatus to the list artifacts params
 func (o *ListArtifactsParams) WithWithImmutableStatus(withImmutableStatus *bool) *ListArtifactsParams {
 	o.SetWithImmutableStatus(withImmutableStatus)
@@ -406,14 +346,6 @@ func (o *ListArtifactsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
-	if o.XAcceptVulnerabilities != nil {
-
-		// header param X-Accept-Vulnerabilities
-		if err := r.SetHeaderParam("X-Accept-Vulnerabilities", *o.XAcceptVulnerabilities); err != nil {
-			return err
-		}
-	}
 
 	if o.XRequestID != nil {
 
@@ -482,40 +414,6 @@ func (o *ListArtifactsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 	// path param repository_name
 	if err := r.SetPathParam("repository_name", o.RepositoryName); err != nil {
 		return err
-	}
-
-	if o.Sort != nil {
-
-		// query param sort
-		var qrSort string
-
-		if o.Sort != nil {
-			qrSort = *o.Sort
-		}
-		qSort := qrSort
-		if qSort != "" {
-
-			if err := r.SetQueryParam("sort", qSort); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.WithAccessory != nil {
-
-		// query param with_accessory
-		var qrWithAccessory bool
-
-		if o.WithAccessory != nil {
-			qrWithAccessory = *o.WithAccessory
-		}
-		qWithAccessory := swag.FormatBool(qrWithAccessory)
-		if qWithAccessory != "" {
-
-			if err := r.SetQueryParam("with_accessory", qWithAccessory); err != nil {
-				return err
-			}
-		}
 	}
 
 	if o.WithImmutableStatus != nil {

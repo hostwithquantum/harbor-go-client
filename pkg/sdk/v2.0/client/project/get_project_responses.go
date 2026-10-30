@@ -86,11 +86,11 @@ func (o *GetProjectOK) IsCode(code int) bool {
 }
 
 func (o *GetProjectOK) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}][%d] getProjectOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}][%d] getProjectOK  %+v", 200, o.Payload)
 }
 
 func (o *GetProjectOK) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}][%d] getProjectOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}][%d] getProjectOK  %+v", 200, o.Payload)
 }
 
 func (o *GetProjectOK) GetPayload() *models.Project {
@@ -154,11 +154,11 @@ func (o *GetProjectUnauthorized) IsCode(code int) bool {
 }
 
 func (o *GetProjectUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}][%d] getProjectUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}][%d] getProjectUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *GetProjectUnauthorized) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}][%d] getProjectUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}][%d] getProjectUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *GetProjectUnauthorized) GetPayload() *models.Errors {
@@ -229,11 +229,11 @@ func (o *GetProjectInternalServerError) IsCode(code int) bool {
 }
 
 func (o *GetProjectInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}][%d] getProjectInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}][%d] getProjectInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *GetProjectInternalServerError) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}][%d] getProjectInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}][%d] getProjectInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *GetProjectInternalServerError) GetPayload() *models.Errors {

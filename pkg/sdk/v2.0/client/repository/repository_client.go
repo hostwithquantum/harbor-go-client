@@ -28,11 +28,6 @@ type API interface {
 	   Get the repository specified by name*/
 	GetRepository(ctx context.Context, params *GetRepositoryParams) (*GetRepositoryOK, error)
 	/*
-	   ListAllRepositories lists all authorized repositories
-
-	   List all authorized repositories*/
-	ListAllRepositories(ctx context.Context, params *ListAllRepositoriesParams) (*ListAllRepositoriesOK, error)
-	/*
 	   ListRepositories lists repositories
 
 	   List repositories of the specified project*/
@@ -113,33 +108,6 @@ func (a *Client) GetRepository(ctx context.Context, params *GetRepositoryParams)
 		return nil, err
 	}
 	return result.(*GetRepositoryOK), nil
-
-}
-
-/*
-ListAllRepositories lists all authorized repositories
-
-List all authorized repositories
-*/
-func (a *Client) ListAllRepositories(ctx context.Context, params *ListAllRepositoriesParams) (*ListAllRepositoriesOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "listAllRepositories",
-		Method:             "GET",
-		PathPattern:        "/repositories",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &ListAllRepositoriesReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*ListAllRepositoriesOK), nil
 
 }
 

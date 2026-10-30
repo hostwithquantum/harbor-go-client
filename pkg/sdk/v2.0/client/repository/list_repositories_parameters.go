@@ -98,12 +98,6 @@ type ListRepositoriesParams struct {
 	*/
 	Q *string
 
-	/* Sort.
-
-	   Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with "sort=field1,-field2"
-	*/
-	Sort *string
-
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -226,17 +220,6 @@ func (o *ListRepositoriesParams) SetQ(q *string) {
 	o.Q = q
 }
 
-// WithSort adds the sort to the list repositories params
-func (o *ListRepositoriesParams) WithSort(sort *string) *ListRepositoriesParams {
-	o.SetSort(sort)
-	return o
-}
-
-// SetSort adds the sort to the list repositories params
-func (o *ListRepositoriesParams) SetSort(sort *string) {
-	o.Sort = sort
-}
-
 // WriteToRequest writes these params to a swagger request
 func (o *ListRepositoriesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -304,23 +287,6 @@ func (o *ListRepositoriesParams) WriteToRequest(r runtime.ClientRequest, reg str
 		if qQ != "" {
 
 			if err := r.SetQueryParam("q", qQ); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.Sort != nil {
-
-		// query param sort
-		var qrSort string
-
-		if o.Sort != nil {
-			qrSort = *o.Sort
-		}
-		qSort := qrSort
-		if qSort != "" {
-
-			if err := r.SetQueryParam("sort", qSort); err != nil {
 				return err
 			}
 		}

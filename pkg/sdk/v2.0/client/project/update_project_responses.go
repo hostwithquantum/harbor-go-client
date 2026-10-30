@@ -107,11 +107,11 @@ func (o *UpdateProjectOK) IsCode(code int) bool {
 }
 
 func (o *UpdateProjectOK) Error() string {
-	return fmt.Sprintf("[PUT /projects/{project_name_or_id}][%d] updateProjectOK ", 200)
+	return fmt.Sprintf("[PUT /projects/{project_id}][%d] updateProjectOK ", 200)
 }
 
 func (o *UpdateProjectOK) String() string {
-	return fmt.Sprintf("[PUT /projects/{project_name_or_id}][%d] updateProjectOK ", 200)
+	return fmt.Sprintf("[PUT /projects/{project_id}][%d] updateProjectOK ", 200)
 }
 
 func (o *UpdateProjectOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -171,11 +171,11 @@ func (o *UpdateProjectBadRequest) IsCode(code int) bool {
 }
 
 func (o *UpdateProjectBadRequest) Error() string {
-	return fmt.Sprintf("[PUT /projects/{project_name_or_id}][%d] updateProjectBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[PUT /projects/{project_id}][%d] updateProjectBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *UpdateProjectBadRequest) String() string {
-	return fmt.Sprintf("[PUT /projects/{project_name_or_id}][%d] updateProjectBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[PUT /projects/{project_id}][%d] updateProjectBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *UpdateProjectBadRequest) GetPayload() *models.Errors {
@@ -246,11 +246,11 @@ func (o *UpdateProjectUnauthorized) IsCode(code int) bool {
 }
 
 func (o *UpdateProjectUnauthorized) Error() string {
-	return fmt.Sprintf("[PUT /projects/{project_name_or_id}][%d] updateProjectUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[PUT /projects/{project_id}][%d] updateProjectUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *UpdateProjectUnauthorized) String() string {
-	return fmt.Sprintf("[PUT /projects/{project_name_or_id}][%d] updateProjectUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[PUT /projects/{project_id}][%d] updateProjectUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *UpdateProjectUnauthorized) GetPayload() *models.Errors {
@@ -321,11 +321,11 @@ func (o *UpdateProjectForbidden) IsCode(code int) bool {
 }
 
 func (o *UpdateProjectForbidden) Error() string {
-	return fmt.Sprintf("[PUT /projects/{project_name_or_id}][%d] updateProjectForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[PUT /projects/{project_id}][%d] updateProjectForbidden  %+v", 403, o.Payload)
 }
 
 func (o *UpdateProjectForbidden) String() string {
-	return fmt.Sprintf("[PUT /projects/{project_name_or_id}][%d] updateProjectForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[PUT /projects/{project_id}][%d] updateProjectForbidden  %+v", 403, o.Payload)
 }
 
 func (o *UpdateProjectForbidden) GetPayload() *models.Errors {
@@ -396,11 +396,11 @@ func (o *UpdateProjectNotFound) IsCode(code int) bool {
 }
 
 func (o *UpdateProjectNotFound) Error() string {
-	return fmt.Sprintf("[PUT /projects/{project_name_or_id}][%d] updateProjectNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[PUT /projects/{project_id}][%d] updateProjectNotFound  %+v", 404, o.Payload)
 }
 
 func (o *UpdateProjectNotFound) String() string {
-	return fmt.Sprintf("[PUT /projects/{project_name_or_id}][%d] updateProjectNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[PUT /projects/{project_id}][%d] updateProjectNotFound  %+v", 404, o.Payload)
 }
 
 func (o *UpdateProjectNotFound) GetPayload() *models.Errors {
@@ -471,11 +471,11 @@ func (o *UpdateProjectInternalServerError) IsCode(code int) bool {
 }
 
 func (o *UpdateProjectInternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /projects/{project_name_or_id}][%d] updateProjectInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[PUT /projects/{project_id}][%d] updateProjectInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *UpdateProjectInternalServerError) String() string {
-	return fmt.Sprintf("[PUT /projects/{project_name_or_id}][%d] updateProjectInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[PUT /projects/{project_id}][%d] updateProjectInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *UpdateProjectInternalServerError) GetPayload() *models.Errors {

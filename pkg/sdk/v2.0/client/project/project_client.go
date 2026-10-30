@@ -48,11 +48,6 @@ type API interface {
 	   Get summary of the project.*/
 	GetProjectSummary(ctx context.Context, params *GetProjectSummaryParams) (*GetProjectSummaryOK, error)
 	/*
-	   GetScannerOfProject gets project level scanner
-
-	   Get the scanner registration of the specified project. If no scanner registration is configured for the specified project, the system default scanner registration will be returned.*/
-	GetScannerOfProject(ctx context.Context, params *GetScannerOfProjectParams) (*GetScannerOfProjectOK, error)
-	/*
 	   HeadProject checks if the project name user provided already exists
 
 	   This endpoint is used to check if the project name provided already exist.*/
@@ -62,16 +57,6 @@ type API interface {
 
 	   This endpoint returns projects created by Harbor.*/
 	ListProjects(ctx context.Context, params *ListProjectsParams) (*ListProjectsOK, error)
-	/*
-	   ListScannerCandidatesOfProject gets scanner registration candidates for configurating project level scanner
-
-	   Retrieve the system configured scanner registrations as candidates of setting project level scanner.*/
-	ListScannerCandidatesOfProject(ctx context.Context, params *ListScannerCandidatesOfProjectParams) (*ListScannerCandidatesOfProjectOK, error)
-	/*
-	   SetScannerOfProject configures scanner for the specified project
-
-	   Set one of the system configured scanner registration as the indepndent scanner of the specified project.*/
-	SetScannerOfProject(ctx context.Context, params *SetScannerOfProjectParams) (*SetScannerOfProjectOK, error)
 	/*
 	   UpdateProject updates properties for a selected project
 
@@ -134,7 +119,7 @@ func (a *Client) DeleteProject(ctx context.Context, params *DeleteProjectParams)
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "deleteProject",
 		Method:             "DELETE",
-		PathPattern:        "/projects/{project_name_or_id}",
+		PathPattern:        "/projects/{project_id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -188,7 +173,7 @@ func (a *Client) GetProject(ctx context.Context, params *GetProjectParams) (*Get
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getProject",
 		Method:             "GET",
-		PathPattern:        "/projects/{project_name_or_id}",
+		PathPattern:        "/projects/{project_id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -215,7 +200,7 @@ func (a *Client) GetProjectDeletable(ctx context.Context, params *GetProjectDele
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getProjectDeletable",
 		Method:             "GET",
-		PathPattern:        "/projects/{project_name_or_id}/_deletable",
+		PathPattern:        "/projects/{project_id}/_deletable",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -242,7 +227,7 @@ func (a *Client) GetProjectSummary(ctx context.Context, params *GetProjectSummar
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getProjectSummary",
 		Method:             "GET",
-		PathPattern:        "/projects/{project_name_or_id}/summary",
+		PathPattern:        "/projects/{project_id}/summary",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},
@@ -256,33 +241,6 @@ func (a *Client) GetProjectSummary(ctx context.Context, params *GetProjectSummar
 		return nil, err
 	}
 	return result.(*GetProjectSummaryOK), nil
-
-}
-
-/*
-GetScannerOfProject gets project level scanner
-
-Get the scanner registration of the specified project. If no scanner registration is configured for the specified project, the system default scanner registration will be returned.
-*/
-func (a *Client) GetScannerOfProject(ctx context.Context, params *GetScannerOfProjectParams) (*GetScannerOfProjectOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getScannerOfProject",
-		Method:             "GET",
-		PathPattern:        "/projects/{project_name_or_id}/scanner",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &GetScannerOfProjectReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetScannerOfProjectOK), nil
 
 }
 
@@ -341,60 +299,6 @@ func (a *Client) ListProjects(ctx context.Context, params *ListProjectsParams) (
 }
 
 /*
-ListScannerCandidatesOfProject gets scanner registration candidates for configurating project level scanner
-
-Retrieve the system configured scanner registrations as candidates of setting project level scanner.
-*/
-func (a *Client) ListScannerCandidatesOfProject(ctx context.Context, params *ListScannerCandidatesOfProjectParams) (*ListScannerCandidatesOfProjectOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "listScannerCandidatesOfProject",
-		Method:             "GET",
-		PathPattern:        "/projects/{project_name_or_id}/scanner/candidates",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &ListScannerCandidatesOfProjectReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*ListScannerCandidatesOfProjectOK), nil
-
-}
-
-/*
-SetScannerOfProject configures scanner for the specified project
-
-Set one of the system configured scanner registration as the indepndent scanner of the specified project.
-*/
-func (a *Client) SetScannerOfProject(ctx context.Context, params *SetScannerOfProjectParams) (*SetScannerOfProjectOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "setScannerOfProject",
-		Method:             "PUT",
-		PathPattern:        "/projects/{project_name_or_id}/scanner",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &SetScannerOfProjectReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*SetScannerOfProjectOK), nil
-
-}
-
-/*
 UpdateProject updates properties for a selected project
 
 This endpoint is aimed to update the properties of a project.
@@ -404,7 +308,7 @@ func (a *Client) UpdateProject(ctx context.Context, params *UpdateProjectParams)
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "updateProject",
 		Method:             "PUT",
-		PathPattern:        "/projects/{project_name_or_id}",
+		PathPattern:        "/projects/{project_id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},

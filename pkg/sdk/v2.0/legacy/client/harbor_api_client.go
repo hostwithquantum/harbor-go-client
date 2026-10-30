@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/strfmt"
 
 	"github.com/goharbor/go-client/pkg/sdk/v2.0/legacy/client/products"
+	"github.com/goharbor/go-client/pkg/sdk/v2.0/legacy/client/scanners"
 )
 
 const (
@@ -59,11 +60,13 @@ func New(c Config) *HarborAPI {
 	cli := new(HarborAPI)
 	cli.Transport = transport
 	cli.Products = products.New(transport, strfmt.Default, c.AuthInfo)
+	cli.Scanners = scanners.New(transport, strfmt.Default, c.AuthInfo)
 	return cli
 }
 
 // HarborAPI is a client for harbor API
 type HarborAPI struct {
 	Products  *products.Client
+	Scanners  *scanners.Client
 	Transport runtime.ClientTransport
 }
