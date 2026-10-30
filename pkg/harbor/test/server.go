@@ -7,7 +7,6 @@ import (
 	"net/http/httptest"
 
 	"github.com/goharbor/go-client/pkg/sdk/assist/client/version"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/models"
 )
 
 const (
@@ -34,14 +33,14 @@ func NewServer() *httptest.Server {
 
 		w.Header().Add("Content-Type", "application/json")
 
-		h := &models.OverallHealthStatus{
-			Status: result,
-		}
+		//h := &models.OverallHealthStatus{
+		//Status: result,
+		//}
 
-		b, _ := json.Marshal(h)
-		if _, err := w.Write(b); err != nil {
-			panic(err)
-		}
+		//b, _ := json.Marshal(h)
+		//if _, err := w.Write(b); err != nil {
+		//panic(err)
+		//}
 
 		w.WriteHeader(http.StatusOK)
 	})

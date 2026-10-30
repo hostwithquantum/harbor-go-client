@@ -13,11 +13,10 @@ produces:
 consumes:
   - application/json
 securityDefinitions:
-  basic:
+  basicAuth:
     type: basic
 security:
-  - basic: []
-  - {}
+  - basicAuth: []
 paths:
   /version:
     get:

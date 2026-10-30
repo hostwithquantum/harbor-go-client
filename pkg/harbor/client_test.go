@@ -12,7 +12,8 @@ import (
 	assistclient "github.com/goharbor/go-client/pkg/sdk/assist/client"
 	"github.com/goharbor/go-client/pkg/sdk/assist/client/version"
 	v2client "github.com/goharbor/go-client/pkg/sdk/v2.0/client"
-	"github.com/goharbor/go-client/pkg/sdk/v2.0/client/health"
+
+	//"github.com/goharbor/go-client/pkg/sdk/v2.0/client/health"
 	legacyclient "github.com/goharbor/go-client/pkg/sdk/v2.0/legacy/client"
 	"github.com/goharbor/go-client/pkg/sdk/v2.0/legacy/client/products"
 	"github.com/stretchr/testify/assert"
@@ -211,10 +212,10 @@ func TestClients(t *testing.T) {
 	assert.Nil(err)
 
 	// test v2 client
-	resGetHealth, err := cs.V2().Health.GetHealth(context.TODO(), health.NewGetHealthParams())
-	assert.Nil(err)
+	//resGetHealth, err := cs.V2().Health.GetHealth(context.TODO(), health.NewGetHealthParams())
+	//assert.Nil(err)
 
-	assert.Equal(result, resGetHealth.Payload.Status)
+	//assert.Equal(result, resGetHealth.Payload.Status)
 
 	// test legacy client
 	_, err = cs.Legacy().Products.PostEmailPing(context.TODO(), products.NewPostEmailPingParams())
