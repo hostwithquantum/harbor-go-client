@@ -110,12 +110,6 @@ type ListTagsParams struct {
 	*/
 	RepositoryName string
 
-	/* Sort.
-
-	   Sort the resource list in ascending or descending order. e.g. sort by field1 in ascending orderr and field2 in descending order with "sort=field1,-field2"
-	*/
-	Sort *string
-
 	/* WithImmutableStatus.
 
 	   Specify whether the immutable status is included inside the returning tags
@@ -278,17 +272,6 @@ func (o *ListTagsParams) SetRepositoryName(repositoryName string) {
 	o.RepositoryName = repositoryName
 }
 
-// WithSort adds the sort to the list tags params
-func (o *ListTagsParams) WithSort(sort *string) *ListTagsParams {
-	o.SetSort(sort)
-	return o
-}
-
-// SetSort adds the sort to the list tags params
-func (o *ListTagsParams) SetSort(sort *string) {
-	o.Sort = sort
-}
-
 // WithWithImmutableStatus adds the withImmutableStatus to the list tags params
 func (o *ListTagsParams) WithWithImmutableStatus(withImmutableStatus *bool) *ListTagsParams {
 	o.SetWithImmutableStatus(withImmutableStatus)
@@ -391,23 +374,6 @@ func (o *ListTagsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 	// path param repository_name
 	if err := r.SetPathParam("repository_name", o.RepositoryName); err != nil {
 		return err
-	}
-
-	if o.Sort != nil {
-
-		// query param sort
-		var qrSort string
-
-		if o.Sort != nil {
-			qrSort = *o.Sort
-		}
-		qSort := qrSort
-		if qSort != "" {
-
-			if err := r.SetQueryParam("sort", qSort); err != nil {
-				return err
-			}
-		}
 	}
 
 	if o.WithImmutableStatus != nil {

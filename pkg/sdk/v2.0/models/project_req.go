@@ -11,7 +11,6 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-	"github.com/go-openapi/validate"
 )
 
 // ProjectReq project req
@@ -26,7 +25,6 @@ type ProjectReq struct {
 	Metadata *ProjectMetadata `json:"metadata,omitempty"`
 
 	// The name of the project.
-	// Max Length: 255
 	ProjectName string `json:"project_name,omitempty"`
 
 	// deprecated, reserved for project creation in replication
@@ -48,10 +46,6 @@ func (m *ProjectReq) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateMetadata(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateProjectName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -94,18 +88,6 @@ func (m *ProjectReq) validateMetadata(formats strfmt.Registry) error {
 			}
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (m *ProjectReq) validateProjectName(formats strfmt.Registry) error {
-	if swag.IsZero(m.ProjectName) { // not required
-		return nil
-	}
-
-	if err := validate.MaxLength("project_name", "body", m.ProjectName, 255); err != nil {
-		return err
 	}
 
 	return nil

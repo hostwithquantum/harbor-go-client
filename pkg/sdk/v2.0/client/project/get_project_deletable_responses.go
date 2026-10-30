@@ -98,11 +98,11 @@ func (o *GetProjectDeletableOK) IsCode(code int) bool {
 }
 
 func (o *GetProjectDeletableOK) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/_deletable][%d] getProjectDeletableOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/_deletable][%d] getProjectDeletableOK  %+v", 200, o.Payload)
 }
 
 func (o *GetProjectDeletableOK) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/_deletable][%d] getProjectDeletableOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/_deletable][%d] getProjectDeletableOK  %+v", 200, o.Payload)
 }
 
 func (o *GetProjectDeletableOK) GetPayload() *models.ProjectDeletable {
@@ -166,11 +166,11 @@ func (o *GetProjectDeletableUnauthorized) IsCode(code int) bool {
 }
 
 func (o *GetProjectDeletableUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/_deletable][%d] getProjectDeletableUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/_deletable][%d] getProjectDeletableUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *GetProjectDeletableUnauthorized) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/_deletable][%d] getProjectDeletableUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/_deletable][%d] getProjectDeletableUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *GetProjectDeletableUnauthorized) GetPayload() *models.Errors {
@@ -241,11 +241,11 @@ func (o *GetProjectDeletableForbidden) IsCode(code int) bool {
 }
 
 func (o *GetProjectDeletableForbidden) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/_deletable][%d] getProjectDeletableForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/_deletable][%d] getProjectDeletableForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetProjectDeletableForbidden) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/_deletable][%d] getProjectDeletableForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/_deletable][%d] getProjectDeletableForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetProjectDeletableForbidden) GetPayload() *models.Errors {
@@ -316,11 +316,11 @@ func (o *GetProjectDeletableNotFound) IsCode(code int) bool {
 }
 
 func (o *GetProjectDeletableNotFound) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/_deletable][%d] getProjectDeletableNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/_deletable][%d] getProjectDeletableNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetProjectDeletableNotFound) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/_deletable][%d] getProjectDeletableNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/_deletable][%d] getProjectDeletableNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetProjectDeletableNotFound) GetPayload() *models.Errors {
@@ -391,11 +391,11 @@ func (o *GetProjectDeletableInternalServerError) IsCode(code int) bool {
 }
 
 func (o *GetProjectDeletableInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/_deletable][%d] getProjectDeletableInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/_deletable][%d] getProjectDeletableInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *GetProjectDeletableInternalServerError) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/_deletable][%d] getProjectDeletableInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/_deletable][%d] getProjectDeletableInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *GetProjectDeletableInternalServerError) GetPayload() *models.Errors {

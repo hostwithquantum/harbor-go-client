@@ -19,7 +19,7 @@ import (
 type ProjectSummary struct {
 
 	// The total number of charts under this project.
-	ChartCount int64 `json:"chart_count"`
+	ChartCount int64 `json:"chart_count,omitempty"`
 
 	// The total number of developer members.
 	DeveloperCount int64 `json:"developer_count,omitempty"`
@@ -43,7 +43,7 @@ type ProjectSummary struct {
 	Registry *Registry `json:"registry,omitempty"`
 
 	// The number of the repositories under this project.
-	RepoCount int64 `json:"repo_count"`
+	RepoCount int64 `json:"repo_count,omitempty"`
 }
 
 // Validate validates this project summary

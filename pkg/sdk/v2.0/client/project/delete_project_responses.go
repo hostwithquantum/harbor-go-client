@@ -107,11 +107,11 @@ func (o *DeleteProjectOK) IsCode(code int) bool {
 }
 
 func (o *DeleteProjectOK) Error() string {
-	return fmt.Sprintf("[DELETE /projects/{project_name_or_id}][%d] deleteProjectOK ", 200)
+	return fmt.Sprintf("[DELETE /projects/{project_id}][%d] deleteProjectOK ", 200)
 }
 
 func (o *DeleteProjectOK) String() string {
-	return fmt.Sprintf("[DELETE /projects/{project_name_or_id}][%d] deleteProjectOK ", 200)
+	return fmt.Sprintf("[DELETE /projects/{project_id}][%d] deleteProjectOK ", 200)
 }
 
 func (o *DeleteProjectOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -171,11 +171,11 @@ func (o *DeleteProjectBadRequest) IsCode(code int) bool {
 }
 
 func (o *DeleteProjectBadRequest) Error() string {
-	return fmt.Sprintf("[DELETE /projects/{project_name_or_id}][%d] deleteProjectBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[DELETE /projects/{project_id}][%d] deleteProjectBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *DeleteProjectBadRequest) String() string {
-	return fmt.Sprintf("[DELETE /projects/{project_name_or_id}][%d] deleteProjectBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[DELETE /projects/{project_id}][%d] deleteProjectBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *DeleteProjectBadRequest) GetPayload() *models.Errors {
@@ -246,11 +246,11 @@ func (o *DeleteProjectForbidden) IsCode(code int) bool {
 }
 
 func (o *DeleteProjectForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /projects/{project_name_or_id}][%d] deleteProjectForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[DELETE /projects/{project_id}][%d] deleteProjectForbidden  %+v", 403, o.Payload)
 }
 
 func (o *DeleteProjectForbidden) String() string {
-	return fmt.Sprintf("[DELETE /projects/{project_name_or_id}][%d] deleteProjectForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[DELETE /projects/{project_id}][%d] deleteProjectForbidden  %+v", 403, o.Payload)
 }
 
 func (o *DeleteProjectForbidden) GetPayload() *models.Errors {
@@ -321,11 +321,11 @@ func (o *DeleteProjectNotFound) IsCode(code int) bool {
 }
 
 func (o *DeleteProjectNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /projects/{project_name_or_id}][%d] deleteProjectNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[DELETE /projects/{project_id}][%d] deleteProjectNotFound  %+v", 404, o.Payload)
 }
 
 func (o *DeleteProjectNotFound) String() string {
-	return fmt.Sprintf("[DELETE /projects/{project_name_or_id}][%d] deleteProjectNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[DELETE /projects/{project_id}][%d] deleteProjectNotFound  %+v", 404, o.Payload)
 }
 
 func (o *DeleteProjectNotFound) GetPayload() *models.Errors {
@@ -396,11 +396,11 @@ func (o *DeleteProjectPreconditionFailed) IsCode(code int) bool {
 }
 
 func (o *DeleteProjectPreconditionFailed) Error() string {
-	return fmt.Sprintf("[DELETE /projects/{project_name_or_id}][%d] deleteProjectPreconditionFailed  %+v", 412, o.Payload)
+	return fmt.Sprintf("[DELETE /projects/{project_id}][%d] deleteProjectPreconditionFailed  %+v", 412, o.Payload)
 }
 
 func (o *DeleteProjectPreconditionFailed) String() string {
-	return fmt.Sprintf("[DELETE /projects/{project_name_or_id}][%d] deleteProjectPreconditionFailed  %+v", 412, o.Payload)
+	return fmt.Sprintf("[DELETE /projects/{project_id}][%d] deleteProjectPreconditionFailed  %+v", 412, o.Payload)
 }
 
 func (o *DeleteProjectPreconditionFailed) GetPayload() *models.Errors {
@@ -471,11 +471,11 @@ func (o *DeleteProjectInternalServerError) IsCode(code int) bool {
 }
 
 func (o *DeleteProjectInternalServerError) Error() string {
-	return fmt.Sprintf("[DELETE /projects/{project_name_or_id}][%d] deleteProjectInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[DELETE /projects/{project_id}][%d] deleteProjectInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *DeleteProjectInternalServerError) String() string {
-	return fmt.Sprintf("[DELETE /projects/{project_name_or_id}][%d] deleteProjectInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[DELETE /projects/{project_id}][%d] deleteProjectInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *DeleteProjectInternalServerError) GetPayload() *models.Errors {

@@ -104,11 +104,11 @@ func (o *GetProjectSummaryOK) IsCode(code int) bool {
 }
 
 func (o *GetProjectSummaryOK) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/summary][%d] getProjectSummaryOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/summary][%d] getProjectSummaryOK  %+v", 200, o.Payload)
 }
 
 func (o *GetProjectSummaryOK) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/summary][%d] getProjectSummaryOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/summary][%d] getProjectSummaryOK  %+v", 200, o.Payload)
 }
 
 func (o *GetProjectSummaryOK) GetPayload() *models.ProjectSummary {
@@ -172,11 +172,11 @@ func (o *GetProjectSummaryBadRequest) IsCode(code int) bool {
 }
 
 func (o *GetProjectSummaryBadRequest) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/summary][%d] getProjectSummaryBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/summary][%d] getProjectSummaryBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *GetProjectSummaryBadRequest) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/summary][%d] getProjectSummaryBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/summary][%d] getProjectSummaryBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *GetProjectSummaryBadRequest) GetPayload() *models.Errors {
@@ -247,11 +247,11 @@ func (o *GetProjectSummaryUnauthorized) IsCode(code int) bool {
 }
 
 func (o *GetProjectSummaryUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/summary][%d] getProjectSummaryUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/summary][%d] getProjectSummaryUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *GetProjectSummaryUnauthorized) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/summary][%d] getProjectSummaryUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/summary][%d] getProjectSummaryUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *GetProjectSummaryUnauthorized) GetPayload() *models.Errors {
@@ -322,11 +322,11 @@ func (o *GetProjectSummaryForbidden) IsCode(code int) bool {
 }
 
 func (o *GetProjectSummaryForbidden) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/summary][%d] getProjectSummaryForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/summary][%d] getProjectSummaryForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetProjectSummaryForbidden) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/summary][%d] getProjectSummaryForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/summary][%d] getProjectSummaryForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetProjectSummaryForbidden) GetPayload() *models.Errors {
@@ -397,11 +397,11 @@ func (o *GetProjectSummaryNotFound) IsCode(code int) bool {
 }
 
 func (o *GetProjectSummaryNotFound) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/summary][%d] getProjectSummaryNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/summary][%d] getProjectSummaryNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetProjectSummaryNotFound) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/summary][%d] getProjectSummaryNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/summary][%d] getProjectSummaryNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetProjectSummaryNotFound) GetPayload() *models.Errors {
@@ -472,11 +472,11 @@ func (o *GetProjectSummaryInternalServerError) IsCode(code int) bool {
 }
 
 func (o *GetProjectSummaryInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/summary][%d] getProjectSummaryInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/summary][%d] getProjectSummaryInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *GetProjectSummaryInternalServerError) String() string {
-	return fmt.Sprintf("[GET /projects/{project_name_or_id}/summary][%d] getProjectSummaryInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[GET /projects/{project_id}/summary][%d] getProjectSummaryInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *GetProjectSummaryInternalServerError) GetPayload() *models.Errors {

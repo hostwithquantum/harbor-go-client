@@ -27,11 +27,6 @@ type API interface {
 
 	   Scan the specified artifact*/
 	ScanArtifact(ctx context.Context, params *ScanArtifactParams) (*ScanArtifactAccepted, error)
-	/*
-	   StopScanArtifact cancellings a scan job for a particular artifact
-
-	   Cancelling a scan job for a particular artifact*/
-	StopScanArtifact(ctx context.Context, params *StopScanArtifactParams) (*StopScanArtifactAccepted, error)
 }
 
 // New creates a new scan API client.
@@ -103,32 +98,5 @@ func (a *Client) ScanArtifact(ctx context.Context, params *ScanArtifactParams) (
 		return nil, err
 	}
 	return result.(*ScanArtifactAccepted), nil
-
-}
-
-/*
-StopScanArtifact cancellings a scan job for a particular artifact
-
-Cancelling a scan job for a particular artifact
-*/
-func (a *Client) StopScanArtifact(ctx context.Context, params *StopScanArtifactParams) (*StopScanArtifactAccepted, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "stopScanArtifact",
-		Method:             "POST",
-		PathPattern:        "/projects/{project_name}/repositories/{repository_name}/artifacts/{reference}/scan/stop",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http", "https"},
-		Params:             params,
-		Reader:             &StopScanArtifactReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*StopScanArtifactAccepted), nil
 
 }
