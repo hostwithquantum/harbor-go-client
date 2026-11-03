@@ -7,9 +7,12 @@ package products
 
 import (
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/goharbor/go-client/pkg/sdk/v2.0/legacy/models"
 )
 
 // PutRetentionsIDReader is a Reader for the PutRetentionsID structure.
@@ -26,6 +29,12 @@ func (o *PutRetentionsIDReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return result, nil
+	case 400:
+		result := NewPutRetentionsIDBadRequest()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 401:
 		result := NewPutRetentionsIDUnauthorized()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -100,6 +109,69 @@ func (o *PutRetentionsIDOK) readResponse(response runtime.ClientResponse, consum
 	return nil
 }
 
+// NewPutRetentionsIDBadRequest creates a PutRetentionsIDBadRequest with default headers values
+func NewPutRetentionsIDBadRequest() *PutRetentionsIDBadRequest {
+	return &PutRetentionsIDBadRequest{}
+}
+
+/*
+PutRetentionsIDBadRequest describes a response with status code 400, with default header values.
+
+Illegal format of provided policy.
+*/
+type PutRetentionsIDBadRequest struct {
+	Payload *models.Errors
+}
+
+// IsSuccess returns true when this put retentions Id bad request response has a 2xx status code
+func (o *PutRetentionsIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put retentions Id bad request response has a 3xx status code
+func (o *PutRetentionsIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put retentions Id bad request response has a 4xx status code
+func (o *PutRetentionsIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put retentions Id bad request response has a 5xx status code
+func (o *PutRetentionsIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put retentions Id bad request response a status code equal to that given
+func (o *PutRetentionsIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
+func (o *PutRetentionsIDBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutRetentionsIDBadRequest) String() string {
+	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutRetentionsIDBadRequest) GetPayload() *models.Errors {
+	return o.Payload
+}
+
+func (o *PutRetentionsIDBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.Errors)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPutRetentionsIDUnauthorized creates a PutRetentionsIDUnauthorized with default headers values
 func NewPutRetentionsIDUnauthorized() *PutRetentionsIDUnauthorized {
 	return &PutRetentionsIDUnauthorized{}
@@ -111,6 +183,7 @@ PutRetentionsIDUnauthorized describes a response with status code 401, with defa
 User need to log in first.
 */
 type PutRetentionsIDUnauthorized struct {
+	Payload *models.Errors
 }
 
 // IsSuccess returns true when this put retentions Id unauthorized response has a 2xx status code
@@ -139,14 +212,25 @@ func (o *PutRetentionsIDUnauthorized) IsCode(code int) bool {
 }
 
 func (o *PutRetentionsIDUnauthorized) Error() string {
-	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdUnauthorized ", 401)
+	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *PutRetentionsIDUnauthorized) String() string {
-	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdUnauthorized ", 401)
+	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutRetentionsIDUnauthorized) GetPayload() *models.Errors {
+	return o.Payload
 }
 
 func (o *PutRetentionsIDUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.Errors)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }
@@ -162,6 +246,7 @@ PutRetentionsIDForbidden describes a response with status code 403, with default
 User have no permission.
 */
 type PutRetentionsIDForbidden struct {
+	Payload *models.Errors
 }
 
 // IsSuccess returns true when this put retentions Id forbidden response has a 2xx status code
@@ -190,14 +275,25 @@ func (o *PutRetentionsIDForbidden) IsCode(code int) bool {
 }
 
 func (o *PutRetentionsIDForbidden) Error() string {
-	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdForbidden ", 403)
+	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdForbidden  %+v", 403, o.Payload)
 }
 
 func (o *PutRetentionsIDForbidden) String() string {
-	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdForbidden ", 403)
+	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutRetentionsIDForbidden) GetPayload() *models.Errors {
+	return o.Payload
 }
 
 func (o *PutRetentionsIDForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.Errors)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }
@@ -213,6 +309,7 @@ PutRetentionsIDInternalServerError describes a response with status code 500, wi
 Unexpected internal errors.
 */
 type PutRetentionsIDInternalServerError struct {
+	Payload *models.Errors
 }
 
 // IsSuccess returns true when this put retentions Id internal server error response has a 2xx status code
@@ -241,14 +338,25 @@ func (o *PutRetentionsIDInternalServerError) IsCode(code int) bool {
 }
 
 func (o *PutRetentionsIDInternalServerError) Error() string {
-	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdInternalServerError ", 500)
+	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *PutRetentionsIDInternalServerError) String() string {
-	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdInternalServerError ", 500)
+	return fmt.Sprintf("[PUT /retentions/{id}][%d] putRetentionsIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutRetentionsIDInternalServerError) GetPayload() *models.Errors {
+	return o.Payload
 }
 
 func (o *PutRetentionsIDInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.Errors)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

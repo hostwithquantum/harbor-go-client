@@ -126,6 +126,7 @@ GetRetentionsIDUnauthorized describes a response with status code 401, with defa
 User need to log in first.
 */
 type GetRetentionsIDUnauthorized struct {
+	Payload *models.Errors
 }
 
 // IsSuccess returns true when this get retentions Id unauthorized response has a 2xx status code
@@ -154,14 +155,25 @@ func (o *GetRetentionsIDUnauthorized) IsCode(code int) bool {
 }
 
 func (o *GetRetentionsIDUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /retentions/{id}][%d] getRetentionsIdUnauthorized ", 401)
+	return fmt.Sprintf("[GET /retentions/{id}][%d] getRetentionsIdUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *GetRetentionsIDUnauthorized) String() string {
-	return fmt.Sprintf("[GET /retentions/{id}][%d] getRetentionsIdUnauthorized ", 401)
+	return fmt.Sprintf("[GET /retentions/{id}][%d] getRetentionsIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRetentionsIDUnauthorized) GetPayload() *models.Errors {
+	return o.Payload
 }
 
 func (o *GetRetentionsIDUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.Errors)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }
@@ -177,6 +189,7 @@ GetRetentionsIDForbidden describes a response with status code 403, with default
 User have no permission.
 */
 type GetRetentionsIDForbidden struct {
+	Payload *models.Errors
 }
 
 // IsSuccess returns true when this get retentions Id forbidden response has a 2xx status code
@@ -205,14 +218,25 @@ func (o *GetRetentionsIDForbidden) IsCode(code int) bool {
 }
 
 func (o *GetRetentionsIDForbidden) Error() string {
-	return fmt.Sprintf("[GET /retentions/{id}][%d] getRetentionsIdForbidden ", 403)
+	return fmt.Sprintf("[GET /retentions/{id}][%d] getRetentionsIdForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetRetentionsIDForbidden) String() string {
-	return fmt.Sprintf("[GET /retentions/{id}][%d] getRetentionsIdForbidden ", 403)
+	return fmt.Sprintf("[GET /retentions/{id}][%d] getRetentionsIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRetentionsIDForbidden) GetPayload() *models.Errors {
+	return o.Payload
 }
 
 func (o *GetRetentionsIDForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.Errors)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }
@@ -228,6 +252,7 @@ GetRetentionsIDInternalServerError describes a response with status code 500, wi
 Unexpected internal errors.
 */
 type GetRetentionsIDInternalServerError struct {
+	Payload *models.Errors
 }
 
 // IsSuccess returns true when this get retentions Id internal server error response has a 2xx status code
@@ -256,14 +281,25 @@ func (o *GetRetentionsIDInternalServerError) IsCode(code int) bool {
 }
 
 func (o *GetRetentionsIDInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /retentions/{id}][%d] getRetentionsIdInternalServerError ", 500)
+	return fmt.Sprintf("[GET /retentions/{id}][%d] getRetentionsIdInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *GetRetentionsIDInternalServerError) String() string {
-	return fmt.Sprintf("[GET /retentions/{id}][%d] getRetentionsIdInternalServerError ", 500)
+	return fmt.Sprintf("[GET /retentions/{id}][%d] getRetentionsIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRetentionsIDInternalServerError) GetPayload() *models.Errors {
+	return o.Payload
 }
 
 func (o *GetRetentionsIDInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.Errors)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

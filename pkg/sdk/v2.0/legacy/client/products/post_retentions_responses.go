@@ -7,9 +7,12 @@ package products
 
 import (
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/goharbor/go-client/pkg/sdk/v2.0/legacy/models"
 )
 
 // PostRetentionsReader is a Reader for the PostRetentions structure.
@@ -117,6 +120,7 @@ PostRetentionsBadRequest describes a response with status code 400, with default
 Illegal format of provided ID value.
 */
 type PostRetentionsBadRequest struct {
+	Payload *models.Errors
 }
 
 // IsSuccess returns true when this post retentions bad request response has a 2xx status code
@@ -145,14 +149,25 @@ func (o *PostRetentionsBadRequest) IsCode(code int) bool {
 }
 
 func (o *PostRetentionsBadRequest) Error() string {
-	return fmt.Sprintf("[POST /retentions][%d] postRetentionsBadRequest ", 400)
+	return fmt.Sprintf("[POST /retentions][%d] postRetentionsBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *PostRetentionsBadRequest) String() string {
-	return fmt.Sprintf("[POST /retentions][%d] postRetentionsBadRequest ", 400)
+	return fmt.Sprintf("[POST /retentions][%d] postRetentionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostRetentionsBadRequest) GetPayload() *models.Errors {
+	return o.Payload
 }
 
 func (o *PostRetentionsBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.Errors)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }
@@ -168,6 +183,7 @@ PostRetentionsUnauthorized describes a response with status code 401, with defau
 User need to log in first.
 */
 type PostRetentionsUnauthorized struct {
+	Payload *models.Errors
 }
 
 // IsSuccess returns true when this post retentions unauthorized response has a 2xx status code
@@ -196,14 +212,25 @@ func (o *PostRetentionsUnauthorized) IsCode(code int) bool {
 }
 
 func (o *PostRetentionsUnauthorized) Error() string {
-	return fmt.Sprintf("[POST /retentions][%d] postRetentionsUnauthorized ", 401)
+	return fmt.Sprintf("[POST /retentions][%d] postRetentionsUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *PostRetentionsUnauthorized) String() string {
-	return fmt.Sprintf("[POST /retentions][%d] postRetentionsUnauthorized ", 401)
+	return fmt.Sprintf("[POST /retentions][%d] postRetentionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostRetentionsUnauthorized) GetPayload() *models.Errors {
+	return o.Payload
 }
 
 func (o *PostRetentionsUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.Errors)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }
@@ -219,6 +246,7 @@ PostRetentionsForbidden describes a response with status code 403, with default 
 User have no permission.
 */
 type PostRetentionsForbidden struct {
+	Payload *models.Errors
 }
 
 // IsSuccess returns true when this post retentions forbidden response has a 2xx status code
@@ -247,14 +275,25 @@ func (o *PostRetentionsForbidden) IsCode(code int) bool {
 }
 
 func (o *PostRetentionsForbidden) Error() string {
-	return fmt.Sprintf("[POST /retentions][%d] postRetentionsForbidden ", 403)
+	return fmt.Sprintf("[POST /retentions][%d] postRetentionsForbidden  %+v", 403, o.Payload)
 }
 
 func (o *PostRetentionsForbidden) String() string {
-	return fmt.Sprintf("[POST /retentions][%d] postRetentionsForbidden ", 403)
+	return fmt.Sprintf("[POST /retentions][%d] postRetentionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostRetentionsForbidden) GetPayload() *models.Errors {
+	return o.Payload
 }
 
 func (o *PostRetentionsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.Errors)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }
@@ -270,6 +309,7 @@ PostRetentionsInternalServerError describes a response with status code 500, wit
 Unexpected internal errors.
 */
 type PostRetentionsInternalServerError struct {
+	Payload *models.Errors
 }
 
 // IsSuccess returns true when this post retentions internal server error response has a 2xx status code
@@ -298,14 +338,25 @@ func (o *PostRetentionsInternalServerError) IsCode(code int) bool {
 }
 
 func (o *PostRetentionsInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /retentions][%d] postRetentionsInternalServerError ", 500)
+	return fmt.Sprintf("[POST /retentions][%d] postRetentionsInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *PostRetentionsInternalServerError) String() string {
-	return fmt.Sprintf("[POST /retentions][%d] postRetentionsInternalServerError ", 500)
+	return fmt.Sprintf("[POST /retentions][%d] postRetentionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostRetentionsInternalServerError) GetPayload() *models.Errors {
+	return o.Payload
 }
 
 func (o *PostRetentionsInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.Errors)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

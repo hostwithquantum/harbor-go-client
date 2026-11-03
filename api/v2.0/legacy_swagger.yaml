@@ -2916,12 +2916,20 @@ paths:
           description: Project created successfully.
         '400':
           description: Illegal format of provided ID value.
+          schema:
+            $ref: '#/definitions/Errors'
         '401':
           description: User need to log in first.
+          schema:
+            $ref: '#/definitions/Errors'
         '403':
           description: User have no permission.
+          schema:
+            $ref: '#/definitions/Errors'
         '500':
           description: Unexpected internal errors.
+          schema:
+            $ref: '#/definitions/Errors'
 
   '/retentions/{id}':
     get:
@@ -2944,10 +2952,16 @@ paths:
             $ref: '#/definitions/RetentionPolicy'
         '401':
           description: User need to log in first.
+          schema:
+            $ref: '#/definitions/Errors'
         '403':
           description: User have no permission.
+          schema:
+            $ref: '#/definitions/Errors'
         '500':
           description: Unexpected internal errors.
+          schema:
+            $ref: '#/definitions/Errors'
     put:
       summary: Update Retention Policy
       description: |
@@ -2971,12 +2985,22 @@ paths:
       responses:
         '200':
           description: Update Retention Policy successfully.
+        '400':
+          description: Illegal format of provided policy.
+          schema:
+            $ref: '#/definitions/Errors'
         '401':
           description: User need to log in first.
+          schema:
+            $ref: '#/definitions/Errors'
         '403':
           description: User have no permission.
+          schema:
+            $ref: '#/definitions/Errors'
         '500':
           description: Unexpected internal errors.
+          schema:
+            $ref: '#/definitions/Errors'
 
   '/retentions/{id}/executions':
     post:
@@ -3502,6 +3526,24 @@ responses:
   InternalServerError:
     description: 'Internal Server Error'
 definitions:
+  Errors:
+    description: The error array that describe the errors got during the handling of request
+    type: object
+    properties:
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  Error:
+    description: a model for all the error response coming from harbor
+    type: object
+    properties:
+      code:
+        type: string
+        description: The error code
+      message:
+        type: string
+        description: The error message
   Search:
     type: object
     properties:
